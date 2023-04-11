@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 /**
  * <p>
@@ -14,12 +15,13 @@ import java.awt.*;
  * @version 1.0.0.230410
  */
 public class Pit extends JPanel implements ChangeListener {
+    public static final int PIT_WIDTH_AND_HEIGHT = 130;
     Model<Integer> beadsModel;
     int pitNumber;
-    public Pit(int pitNumber) {
-        beadsModel = new Model<>();
+    public Pit(Model<Integer> model, int pitNumber) {
+        beadsModel = model;
         this.pitNumber = pitNumber;
-
+        setSize(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT);
         beadsModel.attach(this);
     }
 
@@ -30,9 +32,20 @@ public class Pit extends JPanel implements ChangeListener {
      */
     @Override
     protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        Rectangle2D pitColor = new Rectangle2D.Double(0, 0, PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT);
+        g2.setColor(Color.ORANGE);
+        g2.fill(pitColor);
         int numberOfBeads = beadsModel.get(pitNumber);
+        int x = 15, y = 15;
         for (int i = 0; i < numberOfBeads; i++) {
-            // TODO add BeadICON and call paintIcon
+            BeadIcon bead = new BeadIcon();
+            bead.paintIcon(this, g, x, y);
+            x += 25;
+            if (x == 115) {
+                x = 15;
+                y += 25;
+            }
         }
     }
 
