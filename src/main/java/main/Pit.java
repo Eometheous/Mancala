@@ -40,12 +40,12 @@ public class Pit extends JPanel implements ChangeListener {
         int numberOfBeads = beadsModel.get(pitNumber);
         int x = 15, y = 15;
         for (int i = 0; i < numberOfBeads; i++) {
-            BeadIcon bead = new BeadIcon();
+            BeadIcon bead = new BeadIcon(15);
             bead.paintIcon(this, g, x, y);
-            x += 25;
-            if (x > 65) {
+            x += bead.getIconWidth() + 5;
+            if (x > PIT_WIDTH_AND_HEIGHT - bead.getIconWidth() * 2) {
                 x = 15;
-                y += 25;
+                y += bead.getIconHeight() + 5;
             }
         }
     }
