@@ -18,9 +18,13 @@ public class BeadIcon implements Icon {
 
     int radius;
 
-
     public BeadIcon() {
-        radius = 10;
+        radius = 15;
+
+    }
+
+    public BeadIcon(int newRadius) {
+        radius = newRadius;
 
     }
 
@@ -47,11 +51,11 @@ public class BeadIcon implements Icon {
 
     @Override
     public int getIconWidth() {
-        return radius * 2;
+        return radius;
     }
 
     @Override
     public int getIconHeight() {
-        return radius * 2;
+        return radius;
     }
 }
