@@ -43,7 +43,7 @@ public class Pit extends JPanel implements ChangeListener {
             BeadIcon bead = new BeadIcon();
             bead.paintIcon(this, g, x, y);
             x += 25;
-            if (x >= 90) {
+            if (x > 65) {
                 x = 15;
                 y += 25;
             }
