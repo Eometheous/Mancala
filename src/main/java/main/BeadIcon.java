@@ -9,7 +9,7 @@ import java.awt.geom.*;
  * BeadIcon.java class creates a single instance of a bead to be used in the Mancala main project game. It creates a
  * bead of radius size 25, and assigns a random color value to it and places it based on the xy coordinate passed in.
  * @author Jeffrey Van
- * @version 1.1.0.23411
+ * @version 1.1.1.230413
  */
 
 
