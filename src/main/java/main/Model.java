@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * listeners so that the data can be viewed in many ways.
  * @param <T> The type of data that will be stored
  * @author Jonathan Stewart Thomas
- * @version 1.0.1.23413
+ * @version 1.0.1.230413
  */
 public class Model <T> {
     private final ArrayList<T> dataList;
