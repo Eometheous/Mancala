@@ -34,6 +34,14 @@ public class Pit extends JPanel implements ChangeListener {
         setPreferredSize(new Dimension(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT));
         setSize(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT);
         beadsModel.attach(this);
+        MouseAdapter adapter = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // TODO this is just a placeholder.
+                model.update(pitNumber, model.get(pitNumber) + 1);
+            }
+        };
+        addMouseListener(adapter);
     }
 
     /**
