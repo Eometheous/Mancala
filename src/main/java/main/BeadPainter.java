@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Jonathan Stewart Thomas
  * @version 1.0.0.230417
  */
-public class BeadPainter extends BeadIcon{
+public class BeadPainter {
     /**
      * Paints BeadIcons with constraints for the x-axis
      * @param beads         the beads being painted
