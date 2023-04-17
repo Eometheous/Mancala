@@ -21,6 +21,7 @@ public class Pit extends JPanel implements ChangeListener {
     public Pit(Model<Integer> model, int pitNumber) {
         beadsModel = model;
         this.pitNumber = pitNumber;
+        setPreferredSize(new Dimension(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT));
         setSize(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT);
         beadsModel.attach(this);
     }
