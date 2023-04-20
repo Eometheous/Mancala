@@ -4,7 +4,10 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.util.ArrayList;
 
 /**
  * <p>
@@ -12,17 +15,33 @@ import java.awt.geom.RoundRectangle2D;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.0.0.230411
+ * @version 1.0.1.230411
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
     Model<Integer> beadsModel;
+    ArrayList<BeadIcon> beads;
     int pitNumber;
     public Pit(Model<Integer> model, int pitNumber) {
         beadsModel = model;
+        beads = new ArrayList<>();
+
+        for (int i = 0; i < model.get(pitNumber); i++) {
+            beads.add(new BeadIcon(15));
+        }
+
         this.pitNumber = pitNumber;
+        setPreferredSize(new Dimension(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT));
         setSize(PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT);
         beadsModel.attach(this);
+        MouseAdapter adapter = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // TODO this is just a placeholder.
+                model.update(pitNumber, model.get(pitNumber) + 1);
+            }
+        };
+        addMouseListener(adapter);
     }
 
     /**
@@ -37,17 +56,7 @@ public class Pit extends JPanel implements ChangeListener {
                 PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT, 75, 75);
         g2.setColor(Color.ORANGE);
         g2.fill(pitColor);
-        int numberOfBeads = beadsModel.get(pitNumber);
-        int x = 15, y = 15;
-        for (int i = 0; i < numberOfBeads; i++) {
-            BeadIcon bead = new BeadIcon(15);
-            bead.paintIcon(this, g, x, y);
-            x += bead.getIconWidth() + 5;
-            if (x > PIT_WIDTH_AND_HEIGHT - bead.getIconWidth() * 2) {
-                x = 15;
-                y += bead.getIconHeight() + 5;
-            }
-        }
+        BeadPainter.paintBeads(beads, this, g, PIT_WIDTH_AND_HEIGHT);
     }
 
     /**
@@ -57,6 +66,12 @@ public class Pit extends JPanel implements ChangeListener {
      */
     @Override
     public void stateChanged(ChangeEvent e) {
+        while (beads.size() != beadsModel.get(pitNumber)) {
+            if (beads.size() > beadsModel.get(pitNumber)) {
+                beads.remove(beads.get(beads.size() - 1));
+            }
+            else beads.add(new BeadIcon(15));
+        }
         repaint();
     }
 }
