@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.1.0.230411
+ * @version 1.1.0.230426
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
