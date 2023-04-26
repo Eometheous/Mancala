@@ -15,14 +15,15 @@ import java.util.ArrayList;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.0.1.230411
+ * @version 1.1.0.230426
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
-    Model<Integer> beadsModel;
-    ArrayList<BeadIcon> beads;
-    int pitNumber;
-    public Pit(Model<Integer> model, int pitNumber) {
+    private final Model<Integer> beadsModel;
+    private final ArrayList<BeadIcon> beads;
+    private final int pitNumber;
+    private Color color;
+    public Pit(Model<Integer> model, int pitNumber, Color color) {
         beadsModel = model;
         beads = new ArrayList<>();
 
@@ -36,12 +37,22 @@ public class Pit extends JPanel implements ChangeListener {
         beadsModel.attach(this);
         MouseAdapter adapter = new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 // TODO this is just a placeholder.
                 model.update(pitNumber, model.get(pitNumber) + 1);
             }
         };
         addMouseListener(adapter);
+
+        this.color = color;
+    }
+
+    /**
+     * Sets the color for this pit
+     * @param color the color to use
+     */
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     /**
@@ -54,7 +65,7 @@ public class Pit extends JPanel implements ChangeListener {
         Graphics2D g2 = (Graphics2D) g;
         RoundRectangle2D pitColor = new RoundRectangle2D.Double(0, 0,
                 PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT, 75, 75);
-        g2.setColor(Color.ORANGE);
+        g2.setColor(color);
         g2.fill(pitColor);
         BeadPainter.paintBeads(beads, this, g, PIT_WIDTH_AND_HEIGHT);
     }
@@ -72,6 +83,6 @@ public class Pit extends JPanel implements ChangeListener {
             }
             else beads.add(new BeadIcon(15));
         }
-        repaint();
+        getParent().repaint();
     }
 }
