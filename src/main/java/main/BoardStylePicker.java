@@ -8,7 +8,7 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public class BoardStylePicker implements BoardStyle{
-    BoardStyle style;
+    private final BoardStyle style;
 
     /**
      * Initializes this with a specific style
