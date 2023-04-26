@@ -29,8 +29,8 @@ public class MancalaBoard extends JPanel {
         stylePicker = new BoardStylePicker(new DefaultBoardStyle());
         setLayout(new BorderLayout(25,25));
 
-        mancalaPitA = new MancalaPit(mancalaPitModel, 0, stylePicker.setMancalaPitColor());
-        mancalaPitB = new MancalaPit(mancalaPitModel, 1, stylePicker.setMancalaPitColor());
+        mancalaPitA = new MancalaPit(mancalaPitModel, 0, stylePicker.setPitColor());
+        mancalaPitB = new MancalaPit(mancalaPitModel, 1, stylePicker.setPitColor());
         pitsPanel = new PitsPanel(pitsModel, stylePicker.setPitColor());
         pitsPanel.setBackground(stylePicker.setBoardColor());
 
@@ -48,8 +48,8 @@ public class MancalaBoard extends JPanel {
         stylePicker = new BoardStylePicker(style);
         setBackground(stylePicker.setBoardColor());
         pitsPanel.setBackground(stylePicker.setBoardColor());
-        mancalaPitA.setColor(stylePicker.setMancalaPitColor());
-        mancalaPitB.setColor(stylePicker.setMancalaPitColor());
+        mancalaPitA.setColor(stylePicker.setPitColor());
+        mancalaPitB.setColor(stylePicker.setPitColor());
         for (Pit pit : pitsPanel.getPits()) {
             pit.setColor(stylePicker.setPitColor());
         }

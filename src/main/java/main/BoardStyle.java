@@ -8,7 +8,7 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public interface BoardStyle {
-    Color setMancalaPitColor();
+    Color setFontColor();
     Color setPitColor();
     Color setBoardColor();
 }

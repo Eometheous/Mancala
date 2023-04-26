@@ -8,14 +8,14 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public class DarkModeStyle implements BoardStyle{
-    private final Color boardColor, mancalaPitColor, pitColor;
+    private final Color boardColor, fontColor, pitColor;
 
     /**
      * Sets the colors for the dark style
      */
     public DarkModeStyle() {
         boardColor = new Color(0, 0, 0);
-        mancalaPitColor = new Color(73, 73, 73);
+        fontColor = new Color(255,255,255);
         pitColor = new Color(73, 73, 73);
     }
 
@@ -23,8 +23,8 @@ public class DarkModeStyle implements BoardStyle{
      * @return  the mancalaPitColor
      */
     @Override
-    public Color setMancalaPitColor() {
-        return mancalaPitColor;
+    public Color setFontColor() {
+        return fontColor;
     }
 
     /**

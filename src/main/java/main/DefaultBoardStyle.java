@@ -9,14 +9,14 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public class DefaultBoardStyle implements BoardStyle{
-    private final Color boardColor, mancalaPitColor, pitColor;
+    private final Color boardColor, fontColor, pitColor;
 
     /**
      * Sets the colors for the default style
      */
     public DefaultBoardStyle() {
         boardColor = new Color(163, 114, 46);
-        mancalaPitColor = new Color(133, 91, 17);
+        fontColor = new Color(0,0,0);
         pitColor = new Color(133, 91, 17);
     }
 
@@ -24,8 +24,8 @@ public class DefaultBoardStyle implements BoardStyle{
      * @return  the mancalaPitColor
      */
     @Override
-    public Color setMancalaPitColor() {
-        return mancalaPitColor;
+    public Color setFontColor() {
+        return fontColor;
     }
 
     /**

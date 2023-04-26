@@ -22,8 +22,8 @@ public class BoardStylePicker implements BoardStyle{
      * @return  the color for the mancala pit
      */
     @Override
-    public Color setMancalaPitColor() {
-        return style.setMancalaPitColor();
+    public Color setFontColor() {
+        return style.setFontColor();
     }
 
     /**
