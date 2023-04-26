@@ -6,7 +6,7 @@ public class DefaultBoardStyle implements BoardStyle{
     Color boardColor, mancalaPitColor, pitColor;
     public DefaultBoardStyle() {
         boardColor = new Color(163, 114, 46);
-        mancalaPitColor = new Color(204, 151, 78);
+        mancalaPitColor = new Color(133, 91, 17);
         pitColor = new Color(133, 91, 17);
     }
     @Override
