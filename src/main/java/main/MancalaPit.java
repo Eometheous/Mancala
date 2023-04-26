@@ -9,22 +9,23 @@ import java.awt.geom.*;
 /**
  * The Mancala pits that hold the number of beads each player has
  * @author Andy Wang
- * @version 1.0.2.230421
+ * @version 1.1.0.230421
  */
 public class MancalaPit extends JPanel implements ChangeListener {
 	private static final int MANCALA_WIDTH = 105;
-	private static final int MANCALA_HEIGHT = 230;
+	private static final int MANCALA_HEIGHT = 235;
 	private static final int BEADS_RADIUS = 15;
 	private Model<Integer> beadsModel;
 	private int mancalaNumber;
 	private ArrayList<BeadIcon> theBeads;
+	private Color color;
 	
 	/**
 	 * Constructor for the MancalaPit
 	 * @param model
 	 * @param mancalaNumber
 	 */
-	public MancalaPit(Model<Integer> model, int mancalaNumber) {
+	public MancalaPit(Model<Integer> model, int mancalaNumber, Color color) {
 		beadsModel = model;
 		theBeads = new ArrayList<BeadIcon>();
 		for(int i = 0; i < model.get(mancalaNumber); i++) {
@@ -34,8 +35,19 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		setPreferredSize(new Dimension(MANCALA_WIDTH, MANCALA_HEIGHT));
 		setSize(MANCALA_WIDTH, MANCALA_HEIGHT);
 		beadsModel.attach(this);
-		
+
+		this.color = color;
 	}
+
+	/**
+	 * Sets the color of the Mancala Pit
+	 * @author Jonathan Stewart Thomas
+	 * @param color	the color to be used for this pit
+	 */
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	/**
 	 * Paints the mancala with the beads inside
 	 *@param g a Graphics object	
@@ -43,7 +55,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		RoundRectangle2D mancalaPit = new RoundRectangle2D.Double(0, 0, MANCALA_WIDTH, MANCALA_HEIGHT, 75, 75);
-		g2.setColor(Color.LIGHT_GRAY);
+		g2.setColor(color);
 		g2.fill(mancalaPit);
 		BeadPainter.paintBeads(theBeads,  this,  g,  MANCALA_WIDTH);
 	}
