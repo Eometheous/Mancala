@@ -47,6 +47,10 @@ public class Pit extends JPanel implements ChangeListener {
         this.color = color;
     }
 
+    /**
+     * Sets the color for this pit
+     * @param color the color to use
+     */
     public void setColor(Color color) {
         this.color = color;
     }
