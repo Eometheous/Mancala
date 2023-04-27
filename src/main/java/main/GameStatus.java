@@ -1,5 +1,9 @@
 package main;
 
+import Styles.BoardStyle;
+import Styles.DarkModeStyle;
+import Styles.DefaultBoardStyle;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
