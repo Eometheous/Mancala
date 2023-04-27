@@ -15,7 +15,7 @@ public class KimStyle implements BoardStyle{
      */
     public KimStyle() {
         boardColor = new Color(50, 205, 50);
-        fontColor = new Color(0, 0, 0);
+        fontColor = new Color(0, 0, 238);
         pitColor = new Color(255, 255, 102);
     }
 
