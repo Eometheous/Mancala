@@ -14,9 +14,9 @@ public class KimStyle implements BoardStyle{
      * Sets the colors for the dark style
      */
     public KimStyle() {
-        boardColor = new Color(255, 255, 102);
+        boardColor = new Color(50, 205, 50);
         fontColor = new Color(0, 0, 0);
-        pitColor = new Color(50, 205, 50);
+        pitColor = new Color(255, 255, 102);
     }
 
     /**
