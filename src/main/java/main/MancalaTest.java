@@ -1,6 +1,7 @@
 package main;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MancalaTest {
     public static void main(String[] args) {
@@ -13,11 +14,16 @@ public class MancalaTest {
         mancalaPitsModel.add(0);
 
         MancalaBoard board = new MancalaBoard(mancalaPitsModel, pitsModel);
-//        board.setStyle(new DarkModeStyle());
+//       board.setStyle(new DarkModeStyle());
+
+        GameStatus bar = new GameStatus(pitsModel, board);
 
         JFrame frame = new JFrame("Mancala");
-        frame.add(board);
+        frame.setLayout(new BorderLayout());
+        frame.add(board,BorderLayout.CENTER);
+        frame.add(bar,BorderLayout.NORTH);
         frame.pack();
+
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
