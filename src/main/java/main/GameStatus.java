@@ -85,7 +85,7 @@ public class GameStatus extends JPanel {
 
         JOptionPane.showMessageDialog(this, radioButtons);
 
-}
+    }
 
 
     /**
@@ -106,7 +106,7 @@ public class GameStatus extends JPanel {
      * @return actionlistener that updates the border style of the Mancala board.
      */
     private ActionListener setBoardOptions(BoardStyle picker){
-       return e -> this.board.setStyle(picker);
+        return e -> this.board.setStyle(picker);
 
     }
 
@@ -114,4 +114,4 @@ public class GameStatus extends JPanel {
 
 
 
-    }
+}
