@@ -3,7 +3,7 @@ package Styles;
 import java.awt.*;
 
 /**
- * A dark mode style for the mancala board
+ * A style matching the colors of Kim's website for the mancala board
  * @author Jonathan Stewart Thomas
  * @version 1.0.0.230426
  */
