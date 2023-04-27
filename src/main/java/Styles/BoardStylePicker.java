@@ -1,4 +1,4 @@
-package main;
+package Styles;
 
 import java.awt.*;
 
@@ -14,7 +14,7 @@ public class BoardStylePicker implements BoardStyle{
      * Initializes this with a specific style
      * @param style the style to use
      */
-    BoardStylePicker(BoardStyle style) {
+    public BoardStylePicker(BoardStyle style) {
         this.style = style;
     }
 
