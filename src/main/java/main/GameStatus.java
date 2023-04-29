@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * game with. Another option that is possible within this is setting the color of the board and the style of the board
  * of the game. The user can select between 2, 3, or 4 beads to the start the game with.
  * @author Jeffrey Van
- * @version 1.0.0.230426
+ * @version 1.0.0.230428
  */
 
 
@@ -40,7 +40,7 @@ public class GameStatus extends JPanel {
     private JMenuBar createMenuBar(){
         JMenuBar bar = new JMenuBar();
         JMenu gameOptions= new JMenu("Game Options");
-        JMenu gameBoardOptions = new JMenu("main/styles");
+        JMenu gameBoardOptions = new JMenu("Styles");
 
         bar.add(gameOptions);
         bar.add(gameBoardOptions);
@@ -59,13 +59,13 @@ public class GameStatus extends JPanel {
         JMenuItem kimStyle = new JMenuItem("Kim Board");
         kimStyle.addActionListener(setBoardOptions(new KimStyle()));
 
-        JMenuItem clownStyle = new JMenuItem("Clown Board");
-        clownStyle.addActionListener(setBoardOptions(new ClownStyle()));
+        JMenuItem valorantStyle = new JMenuItem("Valorant Board");
+        valorantStyle.addActionListener((setBoardOptions(new ValorantStyle())));
 
         gameBoardOptions.add(defaultMode);
         gameBoardOptions.add(darkMode);
         gameBoardOptions.add(kimStyle);
-        gameBoardOptions.add(clownStyle);
+        gameBoardOptions.add(valorantStyle);
 
         return bar;
     }
