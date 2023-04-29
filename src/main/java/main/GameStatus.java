@@ -60,12 +60,16 @@ public class GameStatus extends JPanel {
         kimStyle.addActionListener(setBoardOptions(new KimStyle()));
 
         JMenuItem valorantStyle = new JMenuItem("Valorant Board");
-        valorantStyle.addActionListener((setBoardOptions(new ValorantStyle())));
+        valorantStyle.addActionListener(setBoardOptions(new ValorantStyle()));
+
+        JMenuItem clownStyle = new JMenuItem("Clown Board");
+        clownStyle.addActionListener(setBoardOptions(new ClownStyle()));
 
         gameBoardOptions.add(defaultMode);
         gameBoardOptions.add(darkMode);
         gameBoardOptions.add(kimStyle);
         gameBoardOptions.add(valorantStyle);
+        gameBoardOptions.add(clownStyle);
 
         return bar;
     }
