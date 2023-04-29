@@ -16,8 +16,8 @@ public class BeadPainter {
      * @param g             the graphics to paint the beads
      * @param constraints   the x-axis constraints
      */
-    public static void paintBeads(ArrayList<BeadIcon> beads, Component c, Graphics g, int constraints) {
-        int x = 15, y = 15;
+    public static void paintBeads(ArrayList<BeadIcon> beads, Component c, Graphics g, int constraints, int y) {
+        int x = 15;
         for (BeadIcon bead : beads) {
             bead.paintIcon(c, g, x, y);
             x += bead.getIconWidth() + 5;

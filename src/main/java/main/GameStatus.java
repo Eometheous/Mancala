@@ -1,9 +1,9 @@
 package main;
 
-import styles.BoardStyle;
-import styles.DarkModeStyle;
-import styles.DefaultBoardStyle;
-import styles.KimStyle;
+import main.styles.BoardStyle;
+import main.styles.DarkModeStyle;
+import main.styles.DefaultBoardStyle;
+import main.styles.KimStyle;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -43,7 +43,7 @@ public class GameStatus extends JPanel {
     private JMenuBar createMenuBar(){
         JMenuBar bar = new JMenuBar();
         JMenu gameOptions= new JMenu("Game Options");
-        JMenu gameBoardOptions = new JMenu("styles");
+        JMenu gameBoardOptions = new JMenu("main/styles");
 
         bar.add(gameOptions);
         bar.add(gameBoardOptions);
