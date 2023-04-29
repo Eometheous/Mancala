@@ -55,6 +55,8 @@ public class MancalaBoard extends JPanel {
         pitsPanel.setFontColor(stylePicker.setFontColor());
         mancalaPitA.setColor(stylePicker.setPitColor());
         mancalaPitB.setColor(stylePicker.setPitColor());
+        mancalaPitA.setFontColor(stylePicker.setFontColor());
+        mancalaPitB.setFontColor(stylePicker.setFontColor());
         for (Pit pit : pitsPanel.getPits()) {
             pit.setColor(stylePicker.setPitColor());
         }
