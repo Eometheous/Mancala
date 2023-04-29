@@ -38,8 +38,12 @@ public class Pit extends JPanel implements ChangeListener {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                // TODO this is just a placeholder.
-                model.update(pitNumber, model.get(pitNumber) + 1);
+                Model<Integer> mancalaPitsModel = new Model<>();
+                mancalaPitsModel.add(0);
+                mancalaPitsModel.add(0);
+
+                Mancala m = new Mancala(mancalaPitsModel, model);
+                m.pickUp(pitNumber);
             }
         };
         addMouseListener(adapter);
