@@ -15,16 +15,17 @@ import java.util.ArrayList;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.1.0.230426
+ * @version 1.1.0.230428
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
-    private final Model<Integer> beadsModel;
+    private final Model<Integer> beadsModel, mancalaPitModel;
     private final ArrayList<BeadIcon> beads;
     private final int pitNumber;
     private Color color;
     public Pit(Model<Integer> model, Model<Integer> mancalaPitModel, int pitNumber, Color color) {
         beadsModel = model;
+        this.mancalaPitModel = mancalaPitModel;
         beads = new ArrayList<>();
 
         for (int i = 0; i < model.get(pitNumber); i++) {
@@ -38,8 +39,8 @@ public class Pit extends JPanel implements ChangeListener {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                Mancala m = new Mancala(mancalaPitModel, beadsModel);
-                m.pickUp(pitNumber);
+
+                pickUp(pitNumber);
             }
         };
         addMouseListener(adapter);
@@ -48,7 +49,65 @@ public class Pit extends JPanel implements ChangeListener {
     }
 
     /**
+     * Picks up the breads in the specified pit and places them in the other pits following the Mancala game rules.
+     * @param pitNum    the pit the beads are being picked up from.
+     * @author Kelly Dang
+     */
+    private void pickUp(int pitNum) {
+        int total = beadsModel.get(pitNum); // gets total num of stones
+        beadsModel.update(pitNum, 0); // sets num of stones in this pit to be 0
+
+        boolean crossed = false;
+        boolean crossed2 = false;
+
+        if (pitNum >= 0 && pitNum < 5) {
+            pitNum++;
+        } else if (pitNum > 5 && pitNum < 11) {
+            pitNum++;
+        } else if (pitNum == 5) {
+            crossed = true;
+        } else if (pitNum == 11) {
+            crossed2 = true;
+        }
+
+        for (int i = 0; i < total; i++) {
+            if (crossed) {
+                int big = mancalaPitModel.get(0);
+                big++;
+                mancalaPitModel.update(0, big);
+                pitNum = 6;
+                crossed = false;
+            } else if (crossed2) {
+                int big = mancalaPitModel.get(1);
+                big++;
+                mancalaPitModel.update(1, big);
+                pitNum = 0;
+                crossed2 = false;
+            } else if (pitNum <= 5 && pitNum >= 0) {
+                int updated = beadsModel.get(pitNum);
+                updated++;
+                beadsModel.update(pitNum, updated);
+                if (pitNum == 5) {
+                    crossed = true;
+                } else {
+                    pitNum++;
+                }
+            } else if (pitNum >= 6 && pitNum <= 11) {
+                int updated = beadsModel.get(pitNum);
+                updated++;
+                beadsModel.update(pitNum, updated);
+                if (pitNum == 11) {
+                    crossed2 = true;
+                } else {
+                    pitNum++;
+                }
+            }
+        }
+    }
+
+    /**
      * Sets the color for this pit
+     * @author Jonathan Stewart Thomas
      * @param color the color to use
      */
     public void setColor(Color color) {
