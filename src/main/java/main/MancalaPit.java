@@ -93,4 +93,13 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		getParent().repaint();
 		
 	}
+	/**
+	* Sets the font color of the labels based off styles
+	* @author Andy Wang
+	*/
+	public void setFontColor(Color c) {
+	    	
+		numOfBeads.setForeground(c);
+	    	
+	}
 }
