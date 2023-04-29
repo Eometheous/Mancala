@@ -1,9 +1,6 @@
 package main;
 
-import main.styles.BoardStyle;
-import main.styles.DarkModeStyle;
-import main.styles.DefaultBoardStyle;
-import main.styles.KimStyle;
+import main.styles.*;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -62,9 +59,13 @@ public class GameStatus extends JPanel {
         JMenuItem kimStyle = new JMenuItem("Kim Board");
         kimStyle.addActionListener(setBoardOptions(new KimStyle()));
 
+        JMenuItem clownStyle = new JMenuItem("Clown Board");
+        clownStyle.addActionListener(setBoardOptions(new ClownStyle()));
+
         gameBoardOptions.add(defaultMode);
         gameBoardOptions.add(darkMode);
         gameBoardOptions.add(kimStyle);
+        gameBoardOptions.add(clownStyle);
 
         return bar;
     }
