@@ -1,4 +1,4 @@
-package styles;
+package main.styles;
 
 import java.awt.*;
 
@@ -13,9 +13,9 @@ public class ValorantStyle implements BoardStyle{
     /**
      * Sets the colors for the dark style
      */
-    public DarkModeStyle() {
+    public ValorantStyle() {
         boardColor = new Color(255, 81, 82);
-        fontColor = new Color(255,81,82);
+        fontColor = new Color(12, 24, 36);
         pitColor = new Color(12, 24, 36);
     }
 
