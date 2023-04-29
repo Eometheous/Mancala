@@ -36,6 +36,11 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		beadsModel.attach(this);
 
 		this.color = color;
+		setLayout(new BorderLayout());
+        	JLabel label = new JLabel(Integer.toString(theBeads.size()));
+        	label.setHorizontalAlignment(SwingConstants.CENTER);
+        	add(label, BorderLayout.NORTH);
+		
 	}
 
 	/**
@@ -53,7 +58,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 	 */
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		RoundRectangle2D mancalaPit = new RoundRectangle2D.Double(0, 0, MANCALA_WIDTH, MANCALA_HEIGHT, 75, 75);
+		RoundRectangle2D mancalaPit = new RoundRectangle2D.Double(0, 20, MANCALA_WIDTH, MANCALA_HEIGHT, 75, 75);
 		g2.setColor(color);
 		g2.fill(mancalaPit);
 		BeadPainter.paintBeads(theBeads,  this,  g,  MANCALA_WIDTH);
