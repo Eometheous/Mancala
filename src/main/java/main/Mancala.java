@@ -41,7 +41,7 @@ public class Mancala {
                 int big = mancalaPitModel.get(1);
                 big++;
                 mancalaPitModel.update(1, big);
-                pitNum = 5;
+                pitNum = 0;
                 crossed2 = false;
             }
             else if(pitNum <= 5 && pitNum >= 0) {
