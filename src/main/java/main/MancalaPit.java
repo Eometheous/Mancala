@@ -86,6 +86,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		        theBeads.remove(theBeads.size() - 1);
 		    }
 		}
+		numOfBeads.setText(Integer.toString(theBeads.size()));
 		repaint();	
 		
 	}
