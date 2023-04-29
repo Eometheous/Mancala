@@ -1,9 +1,9 @@
 package main;
 
-import styles.BoardStyle;
-import styles.DarkModeStyle;
-import styles.DefaultBoardStyle;
-import styles.KimStyle;
+import main.styles.BoardStyle;
+import main.styles.DarkModeStyle;
+import main.styles.DefaultBoardStyle;
+import main.styles.KimStyle;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 
 public class GameStatus extends JPanel {
     Model<Integer> beadsModel;
+    Model<Integer> mancalaModel;
     MancalaBoard board;
 
 
@@ -28,8 +29,9 @@ public class GameStatus extends JPanel {
      * @param model   the model used to hold the beads in the mancala pits
      * @param board    the board containing all the pits
      */
-    public GameStatus(Model<Integer> model, MancalaBoard board){
+    public GameStatus(Model<Integer> model, MancalaBoard board, Model<Integer> mancalaModel){
         beadsModel = model;
+        this.mancalaModel = mancalaModel;
         this.board = board;
         add(createMenuBar());
     }
@@ -43,15 +45,19 @@ public class GameStatus extends JPanel {
     private JMenuBar createMenuBar(){
         JMenuBar bar = new JMenuBar();
         JMenu gameOptions= new JMenu("Game Options");
-        JMenu gameBoardOptions = new JMenu("styles");
+        JMenu gameBoardOptions = new JMenu("Styles");
+
+
 
         bar.add(gameOptions);
         bar.add(gameBoardOptions);
 
+
+
         JMenuItem startGame = new JMenuItem("Start Game");
         gameOptions.add(startGame);
         startGame.addActionListener(e -> setBeadsOptions());
-
+        gameOptions.add(new Undo(beadsModel,mancalaModel));
 
         JMenuItem defaultMode = new JMenuItem("Default Board");
         defaultMode.addActionListener(setBoardOptions(new DefaultBoardStyle()));
@@ -117,6 +123,7 @@ public class GameStatus extends JPanel {
         return e -> this.board.setStyle(picker);
 
     }
+
 
 
 

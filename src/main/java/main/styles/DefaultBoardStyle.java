@@ -1,22 +1,23 @@
-package styles;
+package main.styles;
 
 import java.awt.*;
 
 /**
- * A style matching the colors of Kim's website for the mancala board
+ * The default style for the mancala board which uses brown colors to match
+ * that of a wooden board.
  * @author Jonathan Stewart Thomas
  * @version 1.0.0.230426
  */
-public class KimStyle implements BoardStyle{
+public class DefaultBoardStyle implements BoardStyle{
     private final Color boardColor, fontColor, pitColor;
 
     /**
-     * Sets the colors for the dark style
+     * Sets the colors for the default style
      */
-    public KimStyle() {
-        boardColor = new Color(50, 205, 50);
-        fontColor = new Color(0, 0, 238);
-        pitColor = new Color(255, 255, 102);
+    public DefaultBoardStyle() {
+        boardColor = new Color(163, 114, 46);
+        fontColor = new Color(0,0,0);
+        pitColor = new Color(133, 91, 17);
     }
 
     /**

@@ -1,8 +1,8 @@
 package main;
 
-import styles.BoardStyle;
-import styles.BoardStylePicker;
-import styles.DefaultBoardStyle;
+import main.styles.BoardStyle;
+import main.styles.BoardStylePicker;
+import main.styles.DefaultBoardStyle;
 
 import javax.swing.*;
 import java.awt.*;

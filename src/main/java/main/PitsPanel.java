@@ -58,7 +58,7 @@ public class PitsPanel extends JPanel {
         return pits;
     }
     /**
-    * Sets the font color of the labels based off styles
+    * Sets the font color of the labels based off main.styles
     * @author Andy Wang
     */
     public void setFontColor(Color c) {
