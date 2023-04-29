@@ -31,7 +31,7 @@ public class MancalaBoard extends JPanel {
 
         mancalaPitA = new MancalaPit(mancalaPitModel, 0, stylePicker.setPitColor());
         mancalaPitB = new MancalaPit(mancalaPitModel, 1, stylePicker.setPitColor());
-        pitsPanel = new PitsPanel(pitsModel, stylePicker.setPitColor());
+        pitsPanel = new PitsPanel(pitsModel, mancalaPitModel, stylePicker.setPitColor());
         pitsPanel.setBackground(stylePicker.setBoardColor());
 
         add(mancalaPitA, BorderLayout.WEST);

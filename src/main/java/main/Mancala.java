@@ -16,13 +16,13 @@ public class Mancala {
         boolean crossed = false;
         boolean crossed2 = false;
 
-        if(pitNum <= 5 && pitNum > 0) {
-            pitNum--;
-        }
-        else if(pitNum >= 6 && pitNum < 11) {
+        if(pitNum >= 0 && pitNum < 5) {
             pitNum++;
         }
-        else if(pitNum == 0) {
+        else if(pitNum > 5 && pitNum < 11) {
+            pitNum++;
+        }
+        else if(pitNum == 5) {
             crossed = true;
         }
         else if(pitNum == 11) {
@@ -30,7 +30,7 @@ public class Mancala {
         }
 
         for(int i = 0; i < total; i++) {
-            if(crossed == true && crossed2 == false) {
+            if(crossed == true) {
                 int big = mancalaPitModel.get(0);
                 big++;
                 mancalaPitModel.update(0, big);
@@ -38,7 +38,6 @@ public class Mancala {
                 crossed = false;
             }
             else if(crossed2 == true) {
-                System.out.println("read");
                 int big = mancalaPitModel.get(1);
                 big++;
                 mancalaPitModel.update(1, big);
@@ -49,11 +48,11 @@ public class Mancala {
                 int updated = pitsModel.get(pitNum);
                 updated++;
                 pitsModel.update(pitNum, updated);
-                if(pitNum == 0) {
+                if(pitNum == 5) {
                     crossed = true;
                 }
                 else {
-                    pitNum--;
+                    pitNum++;
                 }
             }
             else if(pitNum >= 6 && pitNum <= 11) {
@@ -66,13 +65,6 @@ public class Mancala {
                 else {
                     pitNum++;
                 }
-            }
-            else if(crossed2 == true && crossed == false) {
-                int big = mancalaPitModel.get(1);
-                big++;
-                mancalaPitModel.update(1, big);
-                pitNum = 5;
-                crossed2 = false;
             }
         }
     }

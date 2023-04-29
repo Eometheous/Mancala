@@ -23,7 +23,7 @@ public class Pit extends JPanel implements ChangeListener {
     private final ArrayList<BeadIcon> beads;
     private final int pitNumber;
     private Color color;
-    public Pit(Model<Integer> model, int pitNumber, Color color) {
+    public Pit(Model<Integer> model, Model<Integer> mancalaPitModel, int pitNumber, Color color) {
         beadsModel = model;
         beads = new ArrayList<>();
 
@@ -38,11 +38,7 @@ public class Pit extends JPanel implements ChangeListener {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                Model<Integer> mancalaPitsModel = new Model<>();
-                mancalaPitsModel.add(0);
-                mancalaPitsModel.add(0);
-
-                Mancala m = new Mancala(mancalaPitsModel, model);
+                Mancala m = new Mancala(mancalaPitModel, beadsModel);
                 m.pickUp(pitNumber);
             }
         };
