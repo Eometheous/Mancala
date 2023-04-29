@@ -1,14 +1,14 @@
 package main;
 import javax.swing.event.*;
 import java.util.ArrayList;
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
 
 /**
  * The Mancala pits that hold the number of beads each player has
  * @author Andy Wang
- * @version 1.1.0.230426
+ * @version 1.1.1.230428
  */
 public class MancalaPit extends JPanel implements ChangeListener {
 	private static final int MANCALA_WIDTH = 105;
@@ -18,9 +18,11 @@ public class MancalaPit extends JPanel implements ChangeListener {
 	private int mancalaNumber;
 	private ArrayList<BeadIcon> theBeads;
 	private Color color;
+	private JLabel numOfBeads;
 	
 	/**
 	 * Constructor for the MancalaPit
+	 * @author Andy Wang
 	 * @param model
 	 * @param mancalaNumber
 	 */
@@ -36,11 +38,11 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		beadsModel.attach(this);
 
 		this.color = color;
-		setLayout(new BorderLayout());
-        	JLabel label = new JLabel(Integer.toString(theBeads.size()));
-        	label.setHorizontalAlignment(SwingConstants.CENTER);
-        	add(label, BorderLayout.NORTH);
 		
+		setLayout(new BorderLayout());
+        numOfBeads = new JLabel(Integer.toString(theBeads.size()));
+        numOfBeads.setHorizontalAlignment(SwingConstants.CENTER);
+        add(numOfBeads, BorderLayout.NORTH);
 	}
 
 	/**
@@ -87,6 +89,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		    }
 		}
 		numOfBeads.setText(Integer.toString(theBeads.size()));
+		
 		repaint();	
 		
 	}
