@@ -14,17 +14,17 @@ public class MancalaPit extends JPanel implements ChangeListener {
 	private static final int MANCALA_WIDTH = 105;
 	private static final int MANCALA_HEIGHT = 235;
 	private static final int BEADS_RADIUS = 15;
-	private Model<Integer> beadsModel;
-	private int mancalaNumber;
-	private ArrayList<BeadIcon> theBeads;
+	private final Model<Integer> beadsModel;
+	private final int mancalaNumber;
+	private final ArrayList<BeadIcon> theBeads;
 	private Color color;
-	private JLabel numOfBeads;
+	private final JLabel numOfBeads;
 	
 	/**
 	 * Constructor for the MancalaPit
 	 * @author Andy Wang
-	 * @param model
-	 * @param mancalaNumber
+	 * @param model			the model for the mancala pits
+	 * @param mancalaNumber	the number for this mancala pit
 	 */
 	public MancalaPit(Model<Integer> model, int mancalaNumber, Color color) {
 		beadsModel = model;
@@ -84,7 +84,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		for (int i = 0; i < Math.max(expectedBeads, currBeads); i++) {
 		    if (i < expectedBeads && i >= currBeads) {
 		        theBeads.add(new BeadIcon(BEADS_RADIUS));
-		    } else if (i >= expectedBeads && i < currBeads) {
+		    } else if (i >= expectedBeads) {
 		        theBeads.remove(theBeads.size() - 1);
 		    }
 		}
