@@ -1,5 +1,10 @@
 package main;
 
+import Styles.BoardStyle;
+import Styles.DarkModeStyle;
+import Styles.DefaultBoardStyle;
+import Styles.KimStyle;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
@@ -54,9 +59,12 @@ public class GameStatus extends JPanel {
         JMenuItem darkMode = new JMenuItem("Dark Mode Board");
         darkMode.addActionListener(setBoardOptions(new DarkModeStyle()));
 
+        JMenuItem kimStyle = new JMenuItem("Kim Board");
+        kimStyle.addActionListener(setBoardOptions(new KimStyle()));
+
         gameBoardOptions.add(defaultMode);
         gameBoardOptions.add(darkMode);
-
+        gameBoardOptions.add(kimStyle);
 
         return bar;
     }

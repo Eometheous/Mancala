@@ -1,22 +1,22 @@
-package main;
+package Styles;
 
 import java.awt.*;
 
 /**
- * A dark mode style for the mancala board
+ * A style matching the colors of Kim's website for the mancala board
  * @author Jonathan Stewart Thomas
  * @version 1.0.0.230426
  */
-public class DarkModeStyle implements BoardStyle{
+public class KimStyle implements BoardStyle{
     private final Color boardColor, fontColor, pitColor;
 
     /**
      * Sets the colors for the dark style
      */
-    public DarkModeStyle() {
-        boardColor = new Color(0, 0, 0);
-        fontColor = new Color(255,255,255);
-        pitColor = new Color(73, 73, 73);
+    public KimStyle() {
+        boardColor = new Color(50, 205, 50);
+        fontColor = new Color(0, 0, 238);
+        pitColor = new Color(255, 255, 102);
     }
 
     /**
