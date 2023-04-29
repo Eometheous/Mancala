@@ -126,7 +126,7 @@ public class Pit extends JPanel implements ChangeListener {
                 PIT_WIDTH_AND_HEIGHT, PIT_WIDTH_AND_HEIGHT, 75, 75);
         g2.setColor(color);
         g2.fill(pitColor);
-        BeadPainter.paintBeads(beads, this, g, PIT_WIDTH_AND_HEIGHT);
+        BeadPainter.paintBeads(beads, this, g, PIT_WIDTH_AND_HEIGHT, 15);
     }
 
     /**

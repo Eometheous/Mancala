@@ -63,7 +63,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		RoundRectangle2D mancalaPit = new RoundRectangle2D.Double(0, 20, MANCALA_WIDTH, MANCALA_HEIGHT, 75, 75);
 		g2.setColor(color);
 		g2.fill(mancalaPit);
-		BeadPainter.paintBeads(theBeads,  this,  g,  MANCALA_WIDTH);
+		BeadPainter.paintBeads(theBeads,  this,  g,  MANCALA_WIDTH, 35);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		}
 		numOfBeads.setText(Integer.toString(theBeads.size()));
 		
-		repaint();	
+		getParent().repaint();
 		
 	}
 }
