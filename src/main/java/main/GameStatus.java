@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 public class GameStatus extends JPanel {
     Model<Integer> beadsModel;
     MancalaBoard board;
+    Model<Integer> mancalaPitsModel;
 
 
     /**
@@ -28,8 +29,9 @@ public class GameStatus extends JPanel {
      * @param model   the model used to hold the beads in the mancala pits
      * @param board    the board containing all the pits
      */
-    public GameStatus(Model<Integer> model, MancalaBoard board){
+    public GameStatus(Model<Integer> model, MancalaBoard board, Model<Integer> mancalaPitsModel){
         beadsModel = model;
+        this.mancalaPitsModel = mancalaPitsModel;
         this.board = board;
         add(createMenuBar());
     }
@@ -43,15 +45,20 @@ public class GameStatus extends JPanel {
     private JMenuBar createMenuBar(){
         JMenuBar bar = new JMenuBar();
         JMenu gameOptions= new JMenu("Game Options");
-        JMenu gameBoardOptions = new JMenu("main/styles");
+        JMenu gameBoardOptions = new JMenu("Styles");
 
         bar.add(gameOptions);
         bar.add(gameBoardOptions);
+
 
         JMenuItem startGame = new JMenuItem("Start Game");
         gameOptions.add(startGame);
         startGame.addActionListener(e -> setBeadsOptions());
 
+
+        JMenuItem undoItem = new JMenuItem("Undo");
+        undoItem.addActionListener(e->Undo.undoMethod(beadsModel, mancalaPitsModel));
+        gameOptions.add(undoItem);
 
         JMenuItem defaultMode = new JMenuItem("Default Board");
         defaultMode.addActionListener(setBoardOptions(new DefaultBoardStyle()));
@@ -106,6 +113,8 @@ public class GameStatus extends JPanel {
             for(int i=0; i<12; i++){
                 beadsModel.update(i, beads);
             }
+            mancalaPitsModel.update(0,0);
+            mancalaPitsModel.update(1,0);
         };
     }
     /**
@@ -117,6 +126,7 @@ public class GameStatus extends JPanel {
         return e -> this.board.setStyle(picker);
 
     }
+
 
 
 

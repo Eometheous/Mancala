@@ -5,18 +5,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Undo extends JMenuItem{
+public class Undo{
 
-    private final Model<Integer> oldModel;
-    private final Model<Integer> oldPitModel;
+    private static final Model<Integer> oldModel = new Model<>();
+    private static final Model<Integer> oldPitModel = new Model<>();
 
-
-    public Undo(Model<Integer> model, Model<Integer> mancalaPitModel){
-        setText("Undo");
-        oldModel = new Model<>();
-        oldPitModel = new Model<>();
-
-
+    public static void undoMethod(Model<Integer> model, Model<Integer> mancalaPitModel){
         for(int i=0;i<12;i++){
             oldModel.add(model.get(i));
         }
@@ -25,19 +19,25 @@ public class Undo extends JMenuItem{
             oldPitModel.add(mancalaPitModel.get(i));
         }
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                for(int i=0;i<12;i++){
-                    model.update(i, oldModel.get(i));
-                }
-                for(int i = 0;i <2; i++){
-                    mancalaPitModel.update(i, oldPitModel.get(i));
-                }
-            }
-        });
+
+
+        for(int i=0;i<12;i++){
+            model.update(i,oldModel.get(i));
+        }
+
+        for(int i = 0;i <2; i++){
+            mancalaPitModel.update(i,oldPitModel.get(i));
+        }
+
+
+
     }
 
 
 
-}
+
+    }
+
+
+
+
