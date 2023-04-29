@@ -1,4 +1,4 @@
-package styles;
+package main.styles;
 
 import java.awt.*;
 
