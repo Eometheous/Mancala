@@ -8,7 +8,7 @@ import java.awt.geom.*;
 /**
  * The Mancala pits that hold the number of beads each player has
  * @author Andy Wang
- * @version 1.1.1.230428
+ * @version 1.2.0.230428
  */
 public class MancalaPit extends JPanel implements ChangeListener {
 	private static final int MANCALA_WIDTH = 105;
@@ -92,5 +92,14 @@ public class MancalaPit extends JPanel implements ChangeListener {
 		
 		getParent().repaint();
 		
+	}
+	/**
+	* Sets the font color of the labels based off styles
+	* @author Andy Wang
+	*/
+	public void setFontColor(Color c) {
+	    	
+		numOfBeads.setForeground(c);
+	    	
 	}
 }
