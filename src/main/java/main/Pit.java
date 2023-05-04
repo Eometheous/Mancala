@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.1.0.230504
+ * @version 1.2.0.230504
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
@@ -23,6 +23,15 @@ public class Pit extends JPanel implements ChangeListener {
     private final ArrayList<BeadIcon> beads;
     private final int pitNumber;
     private Color color;
+
+    /**
+     * The constructor for the Pit class. It takes in two models and a color for the pit background.
+     * @author Jonathan Stewart Thomas
+     * @param model             the model containing the number of beads
+     * @param mancalaPitModel   the model containing the number of beads within the mancala pit
+     * @param pitNumber         the pit number for this pit
+     * @param color             the background color for this pit
+     */
     public Pit(Model<Integer> model, Model<Integer> mancalaPitModel, int pitNumber, Color color) {
         beadsModel = model;
         this.mancalaPitModel = mancalaPitModel;
@@ -104,6 +113,16 @@ public class Pit extends JPanel implements ChangeListener {
                 }
             }
         }
+    }
+
+    /**
+     * Gets the opposite pit of the entered pit number
+     * @author Jonathan Stewart Thomas
+     * @param pitNumber the pit we are finding the opposite off
+     * @return          the opposite pit
+     */
+    public int getOppositePitOf(int pitNumber) {
+        return 12 - pitNumber - 1;
     }
 
     /**
