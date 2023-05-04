@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.1.0.230428
+ * @version 1.1.0.230504
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
@@ -54,6 +54,7 @@ public class Pit extends JPanel implements ChangeListener {
      * @author Kelly Dang
      */
     private void pickUp(int pitNum) {
+        Undo.update(beadsModel, mancalaPitModel);
         int total = beadsModel.get(pitNum); // gets total num of stones
         beadsModel.update(pitNum, 0); // sets num of stones in this pit to be 0
 
