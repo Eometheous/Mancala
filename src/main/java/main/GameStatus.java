@@ -72,11 +72,15 @@ public class GameStatus extends JPanel {
         JMenuItem clownStyle = new JMenuItem("Clown Board");
         clownStyle.addActionListener(setBoardOptions(new ClownStyle()));
 
+        JMenuItem patriotStyle = new JMenuItem("MURICA!");
+        patriotStyle.addActionListener(setBoardOptions(new PatriotStyle()));
+
         gameBoardOptions.add(defaultMode);
         gameBoardOptions.add(darkMode);
         gameBoardOptions.add(kimStyle);
         gameBoardOptions.add(valorantStyle);
         gameBoardOptions.add(clownStyle);
+        gameBoardOptions.add(patriotStyle);
 
         return bar;
     }
