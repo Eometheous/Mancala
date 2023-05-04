@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * game with. Another option that is possible within this is setting the color of the board and the style of the board
  * of the game. The user can select between 2, 3, or 4 beads to the start the game with.
  * @author Jeffrey Van
- * @version 1.0.0.230428
+ * @version 1.0.0.230504
  */
 
 
@@ -54,7 +54,7 @@ public class GameStatus extends JPanel {
 
 
         JMenuItem undoItem = new JMenuItem("Undo");
-        undoItem.addActionListener(e->Undo.undoMethod(beadsModel, mancalaPitsModel));
+        undoItem.addActionListener(e->Undo.undo(beadsModel, mancalaPitsModel));
         gameOptions.add(undoItem);
 
         JMenuItem defaultMode = new JMenuItem("Default Board");
@@ -115,7 +115,7 @@ public class GameStatus extends JPanel {
      */
     private ActionListener setBeads(int beads){
         return e->{
-            Undo.undoMethod(beadsModel, mancalaPitsModel);
+            Undo.initializer(beadsModel,mancalaPitsModel);
             for(int i=0; i<12; i++){
                 beadsModel.update(i, beads);
             }

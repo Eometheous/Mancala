@@ -1,55 +1,64 @@
 package main;
-
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+/**
+ * The Undo class is a class that contains static methods that are used to allow the user to undo. These methods are used
+ * in the GameStatus class and the Pit class to have a save state of the board. This save state can be used to
+ * undo a move that the user has done.
+ * @author Jeffrey Van
+ * @version 1.0.0.230504
+ */
 
 public class Undo{
 
-    private static final Model<Integer> oldModel = new Model<>();
-    private static final Model<Integer> oldPitModel = new Model<>();
+    private static final Model<Integer> pitSaveState = new Model<>();
+    private static final Model<Integer> mancalaPitSaveState = new Model<>();
 
-    public static void undoMethod(Model<Integer> model, Model<Integer> mancalaPitModel){
+    /**
+     * This static void method, it sets the model to the save state that we previously established.
+     * @param model   the model used to hold the beads in the mancala pits
+     * @param mancalaPitModel    the board containing all the pits
+     */
+    public static void undo(Model<Integer> model, Model<Integer> mancalaPitModel){
         for(int i=0;i<12;i++){
-            oldModel.add(model.get(i));
+            model.update(i, pitSaveState.get(i));
         }
 
         for(int i = 0;i <2; i++){
-            oldPitModel.add(mancalaPitModel.get(i));
+            mancalaPitModel.update(i, mancalaPitSaveState.get(i));
         }
+    }
 
-
-
+    /**
+     * This static method initializes the the save states to the what the model or the mancala pit model is at the
+     * start of the game.
+     * @param model the model used to hold the beads in the mancala pits
+     * @param mancalaPitModel the board containing all the pits
+     */
+    public static void initializer(Model<Integer> model, Model<Integer> mancalaPitModel){
         for(int i=0;i<12;i++){
-            model.update(i,oldModel.get(i));
+            pitSaveState.add(model.get(i));
         }
 
         for(int i = 0;i <2; i++){
-            mancalaPitModel.update(i,oldPitModel.get(i));
+            mancalaPitSaveState.add(mancalaPitModel.get(i));
         }
-
-
-
     }
 
-
-    public static void undoUpdate(Model<Integer> model, Model<Integer> mancalaPitModel){
-
+    /**
+     * This static method updates the save states.
+     * @param model the model used to hold the beads in the mancala pits
+     * @param mancalaPitModel the board containing all the pits
+     */
+    public static void update(Model<Integer> model, Model<Integer> mancalaPitModel){
         for(int i=0;i<12;i++){
-            oldModel.update(i, model.get(i));
+            pitSaveState.update(i, model.get(i));
         }
 
         for(int i = 0;i <2; i++){
-            oldPitModel.update(i, mancalaPitModel.get(i));
+            mancalaPitSaveState.update(i, mancalaPitModel.get(i));
         }
-
     }
 
-
-
-
-    }
+}
 
 
 
