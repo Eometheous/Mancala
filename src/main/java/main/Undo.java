@@ -34,6 +34,19 @@ public class Undo{
     }
 
 
+    public static void undoUpdate(Model<Integer> model, Model<Integer> mancalaPitModel){
+
+        for(int i=0;i<12;i++){
+            oldModel.update(i, model.get(i));
+        }
+
+        for(int i = 0;i <2; i++){
+            oldPitModel.update(i, mancalaPitModel.get(i));
+        }
+
+    }
+
+
 
 
     }

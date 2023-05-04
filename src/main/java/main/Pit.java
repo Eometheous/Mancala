@@ -54,6 +54,7 @@ public class Pit extends JPanel implements ChangeListener {
      * @author Kelly Dang
      */
     private void pickUp(int pitNum) {
+        Undo.undoUpdate(beadsModel, mancalaPitModel);
         int total = beadsModel.get(pitNum); // gets total num of stones
         beadsModel.update(pitNum, 0); // sets num of stones in this pit to be 0
 

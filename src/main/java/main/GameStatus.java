@@ -115,6 +115,7 @@ public class GameStatus extends JPanel {
      */
     private ActionListener setBeads(int beads){
         return e->{
+            Undo.undoMethod(beadsModel, mancalaPitsModel);
             for(int i=0; i<12; i++){
                 beadsModel.update(i, beads);
             }
