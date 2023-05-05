@@ -110,11 +110,11 @@ public class Pit extends JPanel implements ChangeListener {
     private void placeBeadsInPits(int pitNum, int numberOfBeads) {
         while (numberOfBeads > 0) {
             pitNum++;
-            if (pitNum == 6) {// we just crossed from B to A
+            if (pitNum == 6 && GameStatus.isPlayerBTurn()) {// we just crossed from B to A
                 mancalaPitModel.update(0, mancalaPitModel.get(0) + 1);
                 numberOfBeads--;
             }
-            else if (pitNum == 12) { // we just crossed from B to A
+            else if (pitNum == 12 && !GameStatus.isPlayerBTurn()) { // we just crossed from A to B
                 pitNum = 0;
                 mancalaPitModel.update(1, mancalaPitModel.get(1) + 1);
                 numberOfBeads--;
