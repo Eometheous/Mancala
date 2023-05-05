@@ -89,6 +89,16 @@ public class GameStatus extends JPanel {
         JRadioButton threeBeads = new JRadioButton("Three Beads");
         JRadioButton fourBeads = new JRadioButton("Four Beads");
 
+        JRadioButton playerB = new JRadioButton("Player B");
+        JRadioButton playerA = new JRadioButton("Player A");
+
+        ButtonGroup players = new ButtonGroup();
+        players.add(playerB);
+        players.add(playerA);
+
+        playerB.addActionListener(setPlayer(true));
+        playerA.addActionListener(setPlayer(false));
+
         twoBeads.addActionListener(setBeads(2));
         threeBeads.addActionListener(setBeads(3));
         fourBeads.addActionListener(setBeads(4));
@@ -98,11 +108,18 @@ public class GameStatus extends JPanel {
         group.add(threeBeads);
         group.add(fourBeads);
 
-        Object[] radioButtons = {twoBeads, threeBeads, fourBeads};
+        Object[] radioButtons = {twoBeads, threeBeads, fourBeads, "\nWhich player should start?", playerB,playerA};
 
+        JOptionPane.showMessageDialog(this, radioButtons, "Game Starter", JOptionPane.QUESTION_MESSAGE);
+    }
 
-        JOptionPane.showMessageDialog(this, radioButtons);
-
+    /**
+     * Method that returns an action listener, it basically sets the player in the game options.
+     * @param player a boolean that is true if it is player b, false if player a
+     * @return e Actionlistener that sets the player turn.
+     */
+    private ActionListener setPlayer(boolean player){
+        return e -> setPlayerBTurn(player);
     }
 
     /**
