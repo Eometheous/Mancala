@@ -50,7 +50,7 @@ public class MancalaPit extends JPanel implements ChangeListener {
         else {
         	owner = "A";
         }
-        mancalaOwner = new JLabel("Mancala " + owner);
+        mancalaOwner = new JLabel("MANCALA " + owner);
         mancalaOwner.setHorizontalAlignment(SwingConstants.CENTER);
         add(mancalaOwner, BorderLayout.SOUTH);
         add(numOfBeads, BorderLayout.NORTH);
