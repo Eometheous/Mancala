@@ -9,6 +9,8 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 
+import static main.GameStatus.isPlayerBTurn;
+
 /**
  * <p>
  *     A pit for the Mancala board. A Pit contains beads
@@ -48,11 +50,11 @@ public class Pit extends JPanel implements ChangeListener {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if (pitNumber < 6 && GameStatus.isPlayerBTurn()) {
+                if (pitNumber < 6 && isPlayerBTurn()) {
                     pickUp(pitNumber);
                     GameStatus.updatePlayersTurn();
                 }
-                else if (pitNumber > 5 && !GameStatus.isPlayerBTurn()) {
+                else if (pitNumber > 5 && !isPlayerBTurn()) {
                     pickUp(pitNumber);
                     GameStatus.updatePlayersTurn();
                 }
@@ -116,6 +118,26 @@ public class Pit extends JPanel implements ChangeListener {
                     crossed2 = true;
                 } else {
                     pitNum++;
+                }
+            }
+            if(i == total - 1) {
+                if(beadsModel.get(pitNum-1) == 1) {
+                    if(getOppositePitOf(pitNum-1) != 0) {
+                        if(!isPlayerBTurn()) { // 0 for b
+                            int j = beadsModel.get(getOppositePitOf(pitNum-1)) ;
+                            int t = mancalaPitModel.get(1) + j;
+                            mancalaPitModel.update(1, t);
+                            beadsModel.update(pitNum-1, 0);
+                            beadsModel.update(getOppositePitOf(pitNum-1), 0);
+                        }
+                        else{
+                            int j = beadsModel.get(getOppositePitOf(pitNum-1)) ;
+                            int t = mancalaPitModel.get(0) + j;
+                            mancalaPitModel.update(0, t);
+                            beadsModel.update(pitNum-1, 0);
+                            beadsModel.update(getOppositePitOf(pitNum-1), 0);
+                        }
+                    }
                 }
             }
         }
