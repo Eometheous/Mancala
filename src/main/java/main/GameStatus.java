@@ -10,10 +10,11 @@ import java.awt.event.ActionListener;
  * game with. Another option that is possible within this is setting the color of the board and the style of the board
  * of the game. The user can select between 2, 3, or 4 beads to the start the game with.
  * @author Jeffrey Van
- * @version 1.0.0.230504
+ * @version 1.0.0.230505
  */
 public class GameStatus extends JPanel {
     private static boolean isPlayerBTurn = true;
+    public static boolean started = false;
     Model<Integer> beadsModel;
     MancalaBoard board;
     Model<Integer> mancalaPitsModel;
@@ -27,6 +28,7 @@ public class GameStatus extends JPanel {
         beadsModel = model;
         this.mancalaPitsModel = mancalaPitsModel;
         this.board = board;
+        Victory.initializer(model,mancalaPitsModel);
         add(createMenuBar());
     }
 
@@ -135,6 +137,7 @@ public class GameStatus extends JPanel {
             }
             mancalaPitsModel.update(0,0);
             mancalaPitsModel.update(1,0);
+            started = true;
         };
     }
 
