@@ -12,14 +12,11 @@ import java.awt.event.ActionListener;
  * @author Jeffrey Van
  * @version 1.0.0.230504
  */
-
-
-
 public class GameStatus extends JPanel {
+    private static boolean isPlayerBTurn = true;
     Model<Integer> beadsModel;
     MancalaBoard board;
     Model<Integer> mancalaPitsModel;
-
 
     /**
      * Creates a menu bar with all the possible menu options, game options & board options.
@@ -32,8 +29,6 @@ public class GameStatus extends JPanel {
         this.board = board;
         add(createMenuBar());
     }
-
-
 
     /**
      * Method that creates and returns a JMenuBar that has all the options available that the user can select from.
@@ -85,7 +80,6 @@ public class GameStatus extends JPanel {
         return bar;
     }
 
-
     /**
      * Method that makes the buttons and displays it for the user to be able to interact with. It then displays
      * the options in a JOptionPane.
@@ -111,7 +105,6 @@ public class GameStatus extends JPanel {
 
     }
 
-
     /**
      * Method that returns an ActionListener
      * @param beads the amount of beads
@@ -127,6 +120,7 @@ public class GameStatus extends JPanel {
             mancalaPitsModel.update(1,0);
         };
     }
+
     /**
      * Method that returns an ActionListener
      * @param picker the amount of beads
@@ -137,9 +131,30 @@ public class GameStatus extends JPanel {
 
     }
 
+    /**
+     * Checks if it is player B's turn
+     * @author Jonathan Stewart Thomas
+     * @return  true if player B's turn, false otherwise
+     */
+    public static boolean isPlayerBTurn() {
+        return isPlayerBTurn;
+    }
 
+    /**
+     * Updates whose turn it is
+     * @author Jonathan Stewart Thomas
+     */
+    public static void updatePlayersTurn() {
+        isPlayerBTurn = !isPlayerBTurn;
+    }
 
-
-
+    /**
+     * Sets the turn to player B's turn
+     * @author Jonathan Stewart Thomas
+     * @param playersTurn   the boolean for player B's turn
+     */
+    public static void setPlayerBTurn(boolean playersTurn) {
+        isPlayerBTurn = playersTurn;
+    }
 
 }

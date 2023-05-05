@@ -48,8 +48,14 @@ public class Pit extends JPanel implements ChangeListener {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-
-                pickUp(pitNumber);
+                if (pitNumber < 6 && GameStatus.isPlayerBTurn()) {
+                    pickUp(pitNumber);
+                    GameStatus.updatePlayersTurn();
+                }
+                else if (pitNumber > 5 && !GameStatus.isPlayerBTurn()) {
+                    pickUp(pitNumber);
+                    GameStatus.updatePlayersTurn();
+                }
             }
         };
         addMouseListener(adapter);
