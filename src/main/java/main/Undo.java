@@ -11,6 +11,7 @@ public class Undo{
 
     private static final Model<Integer> pitSaveState = new Model<>();
     private static final Model<Integer> mancalaPitSaveState = new Model<>();
+    private static int undoCounter = 3;
 
     /**
      * This static void method, it sets the model to the save state that we previously established.
@@ -18,13 +19,23 @@ public class Undo{
      * @param mancalaPitModel    the board containing all the pits
      */
     public static void undo(Model<Integer> model, Model<Integer> mancalaPitModel){
-        for(int i=0;i<12;i++){
-            model.update(i, pitSaveState.get(i));
-        }
+        if(undoCounter > 0) {
+            for (int i = 0; i < 12; i++) {
+                model.update(i, pitSaveState.get(i));
+            }
 
-        for(int i = 0;i <2; i++){
-            mancalaPitModel.update(i, mancalaPitSaveState.get(i));
+            for (int i = 0; i < 2; i++) {
+                mancalaPitModel.update(i, mancalaPitSaveState.get(i));
+            }
+            undoCounter--;
         }
+    }
+
+    /**
+     * Resets the undo counter.
+     */
+    public static void resetUndoCounter(){
+        undoCounter = 3;
     }
 
     /**
