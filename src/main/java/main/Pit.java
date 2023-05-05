@@ -58,6 +58,7 @@ public class Pit extends JPanel implements ChangeListener {
                     pickUp(pitNumber);
                     GameStatus.updatePlayersTurn();
                 }
+                Victory.checkVictory(Pit.this);
             }
         };
         addMouseListener(adapter);
