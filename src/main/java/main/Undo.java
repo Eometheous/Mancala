@@ -42,7 +42,7 @@ public class Undo{
     }
 
     /**
-     * This static method initializes the the save states to the what the model or the mancala pit model is at the
+     * This static method initializes the save states to what the model or the mancala pit model is at the
      * start of the game.
      * @param model the model used to hold the beads in the mancala pits
      * @param mancalaPitModel the board containing all the pits
