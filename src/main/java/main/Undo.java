@@ -13,6 +13,7 @@ public class Undo{
     private static final Model<Integer> mancalaPitSaveState = new Model<>();
     private static int undoCounter = 3;
     private static boolean isDisabled = false;
+    private static boolean undone = false;
 
     /**
      * This static void method, it sets the model to the save state that we previously established.
@@ -21,6 +22,8 @@ public class Undo{
      */
     public static void undo(Model<Integer> model, Model<Integer> mancalaPitModel){
         if(undoCounter > 0 && !isDisabled) {
+            undone = true;
+
             GameStatus.updatePlayersTurn();
             for (int i = 0; i < 12; i++) {
                 model.update(i, pitSaveState.get(i));
@@ -63,6 +66,11 @@ public class Undo{
      * @param mancalaPitModel the board containing all the pits
      */
     public static void update(Model<Integer> model, Model<Integer> mancalaPitModel){
+        if (!undone) {
+            resetUndoCounter();
+        }
+        else undone = false;
+
         isDisabled = false;
         for(int i=0;i<12;i++){
             pitSaveState.update(i, model.get(i));
