@@ -9,13 +9,15 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 
+import static main.GameStatus.isPlayerBTurn;
+
 /**
  * <p>
  *     A pit for the Mancala board. A Pit contains beads
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.2.0.230504
+ * @version 1.3.0.230505
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
@@ -48,11 +50,11 @@ public class Pit extends JPanel implements ChangeListener {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if (pitNumber < 6 && GameStatus.isPlayerBTurn()) {
+                if (pitNumber < 6 && isPlayerBTurn()) {
                     pickUp(pitNumber);
                     GameStatus.updatePlayersTurn();
                 }
-                else if (pitNumber > 5 && !GameStatus.isPlayerBTurn()) {
+                else if (pitNumber > 5 && !isPlayerBTurn()) {
                     pickUp(pitNumber);
                     GameStatus.updatePlayersTurn();
                 }
@@ -70,54 +72,57 @@ public class Pit extends JPanel implements ChangeListener {
      */
     private void pickUp(int pitNum) {
         Undo.update(beadsModel, mancalaPitModel);
-        int total = beadsModel.get(pitNum); // gets total num of stones
+        int numberOfBeads = beadsModel.get(pitNum); // gets total num of stones
         beadsModel.update(pitNum, 0); // sets num of stones in this pit to be 0
 
-        boolean crossed = false;
-        boolean crossed2 = false;
+        placeBeadsInPits(pitNum, numberOfBeads);
 
-        if (pitNum >= 0 && pitNum < 5) {
-            pitNum++;
-        } else if (pitNum > 5 && pitNum < 11) {
-            pitNum++;
-        } else if (pitNum == 5) {
-            crossed = true;
-        } else if (pitNum == 11) {
-            crossed2 = true;
-        }
+        // TODO fix this Kelly :D
+//        if(i == total - 1) {
+//            pitNum--;
+//            if(beadsModel.get(pitNum) == 1) {
+//                if(getOppositePitOf(pitNum) != 0) {
+//                    if(!isPlayerBTurn()) {
+//                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
+//                        int bigPit = mancalaPitModel.get(1) + opp;
+//                        mancalaPitModel.update(1, bigPit);
+//                        beadsModel.update(pitNum, 0);
+//                        beadsModel.update(getOppositePitOf(pitNum), 0);
+//                    }
+//                    else {
+//                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
+//                        int bigPit = mancalaPitModel.get(0) + opp;
+//                        mancalaPitModel.update(0, bigPit);
+//                        beadsModel.update(pitNum, 0);
+//                        beadsModel.update(getOppositePitOf(pitNum), 0);
+//                    }
+//                }
+//            }
+//        }
+    }
 
-        for (int i = 0; i < total; i++) {
-            if (crossed) {
-                int big = mancalaPitModel.get(0);
-                big++;
-                mancalaPitModel.update(0, big);
-                pitNum = 6;
-                crossed = false;
-            } else if (crossed2) {
-                int big = mancalaPitModel.get(1);
-                big++;
-                mancalaPitModel.update(1, big);
-                pitNum = 0;
-                crossed2 = false;
-            } else if (pitNum <= 5 && pitNum >= 0) {
-                int updated = beadsModel.get(pitNum);
-                updated++;
-                beadsModel.update(pitNum, updated);
-                if (pitNum == 5) {
-                    crossed = true;
-                } else {
-                    pitNum++;
-                }
-            } else if (pitNum >= 6 && pitNum <= 11) {
-                int updated = beadsModel.get(pitNum);
-                updated++;
-                beadsModel.update(pitNum, updated);
-                if (pitNum == 11) {
-                    crossed2 = true;
-                } else {
-                    pitNum++;
-                }
+    /**
+     * Places beads in the pits until there are no more beads left.
+     * @author Jonathan Stewart Thomas
+     * @param pitNum        the original pit we picked up the beads from
+     * @param numberOfBeads the number of beads picked up from that pit
+     */
+    private void placeBeadsInPits(int pitNum, int numberOfBeads) {
+        while (numberOfBeads > 0) {
+            pitNum++;
+            if (pitNum == 6) {// we just crossed from B to A
+                mancalaPitModel.update(0, mancalaPitModel.get(0) + 1);
+                numberOfBeads--;
             }
+            else if (pitNum == 12) { // we just crossed from B to A
+                pitNum = 0;
+                mancalaPitModel.update(1, mancalaPitModel.get(1) + 1);
+                numberOfBeads--;
+            }
+            if (numberOfBeads > 0) {
+                beadsModel.update(pitNum, beadsModel.get(pitNum) + 1);
+            }
+            numberOfBeads--;
         }
     }
 
