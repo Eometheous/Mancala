@@ -72,84 +72,56 @@ public class Pit extends JPanel implements ChangeListener {
      */
     private void pickUp(int pitNum) {
         Undo.update(beadsModel, mancalaPitModel);
-        int total = beadsModel.get(pitNum); // gets total num of stones
+        int numberOfBeads = beadsModel.get(pitNum); // gets total num of stones
         beadsModel.update(pitNum, 0); // sets num of stones in this pit to be 0
 
-        boolean pit0 = false;
-        boolean pit1 = false;
-        boolean start = false;
-        for (int i = 0; i < total; i++) {
-            if(pitNum == 5 && !start) {
-                pit0 = true;
-                start = true;
-            }
-            else if(pitNum == 11 && !start) {
-                pit1 = true;
-                start = true;
-            }
-            else if (!start){
-                pitNum++;
-                start = true;
-            }
+        placeBeadsInPits(pitNum, numberOfBeads);
 
-            if(pit0) {
-                int count = mancalaPitModel.get(0);
-                count++;
-                mancalaPitModel.update(0, count);
-                pitNum++;
-                pit0 = false;
-            }
-            else if(pit1) {
-                int count = mancalaPitModel.get(1);
-                count++;
-                mancalaPitModel.update(1, count);
-                pitNum = 0;
-                pit1 = false;
-            }
-            else if(pitNum <= 5) {
-                int count = beadsModel.get(pitNum);
-                count++;
-                beadsModel.update(pitNum, count);
-                if(pitNum == 5) {
-                    pit0 = true;
-                }
-                else {
-                    pitNum++;
-                }
-            }
-            else if(pitNum >= 6) {
-                int count = beadsModel.get(pitNum);
-                count++;
-                beadsModel.update(pitNum, count);
-                if(pitNum == 11) {
-                    pit1 = true;
-                }
-                else {
-                    pitNum++;
-                }
-            }
-
-            if(i == total - 1) {
-                pitNum--;
-                if(beadsModel.get(pitNum) == 1) {
-                    if(getOppositePitOf(pitNum) != 0) {
-                        if(!isPlayerBTurn()) {
-                            int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
-                            int bigPit = mancalaPitModel.get(1) + opp;
-                            mancalaPitModel.update(1, bigPit);
-                            beadsModel.update(pitNum, 0);
-                            beadsModel.update(getOppositePitOf(pitNum), 0);
-                        }
-                        else {
-                            int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
-                            int bigPit = mancalaPitModel.get(0) + opp;
-                            mancalaPitModel.update(0, bigPit);
-                            beadsModel.update(pitNum, 0);
-                            beadsModel.update(getOppositePitOf(pitNum), 0);
-                        }
+        if(i == total - 1) {
+            pitNum--;
+            if(beadsModel.get(pitNum) == 1) {
+                if(getOppositePitOf(pitNum) != 0) {
+                    if(!isPlayerBTurn()) {
+                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
+                        int bigPit = mancalaPitModel.get(1) + opp;
+                        mancalaPitModel.update(1, bigPit);
+                        beadsModel.update(pitNum, 0);
+                        beadsModel.update(getOppositePitOf(pitNum), 0);
+                    }
+                    else {
+                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
+                        int bigPit = mancalaPitModel.get(0) + opp;
+                        mancalaPitModel.update(0, bigPit);
+                        beadsModel.update(pitNum, 0);
+                        beadsModel.update(getOppositePitOf(pitNum), 0);
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Places beads in the pits until there are no more beads left.
+     * @author Jonathan Stewart Thomas
+     * @param pitNum        the original pit we picked up the beads from
+     * @param numberOfBeads the number of beads picked up from that pit
+     */
+    private void placeBeadsInPits(int pitNum, int numberOfBeads) {
+        while (numberOfBeads > 0) {
+            pitNum++;
+            if (pitNum == 6) {// we just crossed from B to A
+                mancalaPitModel.update(0, mancalaPitModel.get(0) + 1);
+                numberOfBeads--;
+            }
+            else if (pitNum == 12) { // we just crossed from B to A
+                pitNum = 0;
+                mancalaPitModel.update(1, mancalaPitModel.get(1) + 1);
+                numberOfBeads--;
+            }
+            if (numberOfBeads > 0) {
+                beadsModel.update(pitNum, beadsModel.get(pitNum) + 1);
+            }
+            numberOfBeads--;
         }
     }
 
