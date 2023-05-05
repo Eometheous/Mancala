@@ -58,6 +58,7 @@ public class Pit extends JPanel implements ChangeListener {
                     pickUp(pitNumber);
                     GameStatus.updatePlayersTurn();
                 }
+                Victory.checkVictory(Pit.this);
             }
         };
         addMouseListener(adapter);
@@ -76,29 +77,6 @@ public class Pit extends JPanel implements ChangeListener {
         beadsModel.update(pitNum, 0); // sets num of stones in this pit to be 0
 
         placeBeadsInPits(pitNum, numberOfBeads);
-
-        // TODO fix this Kelly :D
-//        if(i == total - 1) {
-//            pitNum--;
-//            if(beadsModel.get(pitNum) == 1) {
-//                if(getOppositePitOf(pitNum) != 0) {
-//                    if(!isPlayerBTurn()) {
-//                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
-//                        int bigPit = mancalaPitModel.get(1) + opp;
-//                        mancalaPitModel.update(1, bigPit);
-//                        beadsModel.update(pitNum, 0);
-//                        beadsModel.update(getOppositePitOf(pitNum), 0);
-//                    }
-//                    else {
-//                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
-//                        int bigPit = mancalaPitModel.get(0) + opp;
-//                        mancalaPitModel.update(0, bigPit);
-//                        beadsModel.update(pitNum, 0);
-//                        beadsModel.update(getOppositePitOf(pitNum), 0);
-//                    }
-//                }
-//            }
-//        }
     }
 
     /**
@@ -126,6 +104,29 @@ public class Pit extends JPanel implements ChangeListener {
             }
             numberOfBeads--;
         }
+
+        // if the last bead was placed in an empty pit, steal the opponents beads
+        if(beadsModel.get(pitNum) == 1) stealBeadsFrom(oppositePitOf(pitNum));
+    }
+
+    /**
+     * Steals the breads from the opponents pit and places them into the mancala.
+     * @param pitNum    the pit the beads are being picked up from.
+     * @author Kelly Dang
+     */
+    private void stealBeadsFrom(int pitNum) {
+        int opp = beadsModel.get(pitNum) + 1;
+        int bigPit;
+        if(!isPlayerBTurn()) {
+            bigPit = mancalaPitModel.get(1) + opp;
+            mancalaPitModel.update(1, bigPit);
+        }
+        else {
+            bigPit = mancalaPitModel.get(0) + opp;
+            mancalaPitModel.update(0, bigPit);
+        }
+        beadsModel.update(pitNum, 0);
+        beadsModel.update(oppositePitOf(pitNum), 0);
     }
 
     /**
@@ -134,7 +135,7 @@ public class Pit extends JPanel implements ChangeListener {
      * @param pitNumber the pit we are finding the opposite off
      * @return          the opposite pit
      */
-    public int getOppositePitOf(int pitNumber) {
+    public int oppositePitOf(int pitNumber) {
         return 12 - pitNumber - 1;
     }
 
