@@ -77,27 +77,28 @@ public class Pit extends JPanel implements ChangeListener {
 
         placeBeadsInPits(pitNum, numberOfBeads);
 
-        if(i == total - 1) {
-            pitNum--;
-            if(beadsModel.get(pitNum) == 1) {
-                if(getOppositePitOf(pitNum) != 0) {
-                    if(!isPlayerBTurn()) {
-                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
-                        int bigPit = mancalaPitModel.get(1) + opp;
-                        mancalaPitModel.update(1, bigPit);
-                        beadsModel.update(pitNum, 0);
-                        beadsModel.update(getOppositePitOf(pitNum), 0);
-                    }
-                    else {
-                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
-                        int bigPit = mancalaPitModel.get(0) + opp;
-                        mancalaPitModel.update(0, bigPit);
-                        beadsModel.update(pitNum, 0);
-                        beadsModel.update(getOppositePitOf(pitNum), 0);
-                    }
-                }
-            }
-        }
+        // TODO fix this Kelly :D
+//        if(i == total - 1) {
+//            pitNum--;
+//            if(beadsModel.get(pitNum) == 1) {
+//                if(getOppositePitOf(pitNum) != 0) {
+//                    if(!isPlayerBTurn()) {
+//                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
+//                        int bigPit = mancalaPitModel.get(1) + opp;
+//                        mancalaPitModel.update(1, bigPit);
+//                        beadsModel.update(pitNum, 0);
+//                        beadsModel.update(getOppositePitOf(pitNum), 0);
+//                    }
+//                    else {
+//                        int opp = beadsModel.get(getOppositePitOf(pitNum)) + 1;
+//                        int bigPit = mancalaPitModel.get(0) + opp;
+//                        mancalaPitModel.update(0, bigPit);
+//                        beadsModel.update(pitNum, 0);
+//                        beadsModel.update(getOppositePitOf(pitNum), 0);
+//                    }
+//                }
+//            }
+//        }
     }
 
     /**
