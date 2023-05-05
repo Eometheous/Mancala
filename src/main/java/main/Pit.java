@@ -17,7 +17,7 @@ import static main.GameStatus.isPlayerBTurn;
  *     which are read from the {@code Model}.
  * </p>
  * @author Jonathan Stewart Thomas
- * @version 1.2.0.230504
+ * @version 1.3.0.230505
  */
 public class Pit extends JPanel implements ChangeListener {
     public static final int PIT_WIDTH_AND_HEIGHT = 105;
