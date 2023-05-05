@@ -110,7 +110,7 @@ public class GameStatus extends JPanel {
 
         Object[] radioButtons = {twoBeads, threeBeads, fourBeads, "\nWhich player should start?", playerB,playerA};
 
-        JOptionPane.showMessageDialog(this, radioButtons);
+        JOptionPane.showMessageDialog(this, radioButtons, "Game Starter", JOptionPane.QUESTION_MESSAGE);
     }
 
     /**
