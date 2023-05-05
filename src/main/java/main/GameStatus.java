@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 
 
 public class GameStatus extends JPanel {
+    private static boolean isPlayerBTurn = true;
     Model<Integer> beadsModel;
     MancalaBoard board;
     Model<Integer> mancalaPitsModel;
@@ -137,8 +138,13 @@ public class GameStatus extends JPanel {
 
     }
 
+    public static boolean isPlayerBTurn() {
+        return isPlayerBTurn;
+    }
 
-
+    public static void updatePlayersTurn() {
+        isPlayerBTurn = !isPlayerBTurn;
+    }
 
 
 
