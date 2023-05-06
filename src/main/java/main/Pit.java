@@ -108,7 +108,17 @@ public class Pit extends JPanel implements ChangeListener {
         }
 
         // if the last bead was placed in an empty pit, steal the opponents beads
-        if(beadsModel.get(pitNum) == 1) stealBeadsFrom(oppositePitOf(pitNum));
+        if(beadsModel.get(pitNum) == 1) {
+            if(isPlayerBTurn() && pitNum <= 5) {
+                stealBeadsFrom(oppositePitOf(pitNum));
+            }
+            else if(!isPlayerBTurn() && pitNum >= 6) {
+                stealBeadsFrom(oppositePitOf(pitNum));
+            }
+            else {
+                return;
+            }
+        }
     }
 
     /**
