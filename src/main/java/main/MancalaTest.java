@@ -14,7 +14,6 @@ public class MancalaTest {
         mancalaPitsModel.add(0);
 
         MancalaBoard board = new MancalaBoard(mancalaPitsModel, pitsModel);
-//       board.setStyle(new DarkModeStyle());
 
         GameStatus bar = new GameStatus(pitsModel, board, mancalaPitsModel);
 
