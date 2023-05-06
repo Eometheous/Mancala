@@ -11,4 +11,7 @@ public interface BoardStyle {
     Color getFontColor();
     Color getPitColor();
     Color getBoardColor();
+    void setFontColor(Color color);
+    void setPitColor(Color color);
+    void setBoardColor(Color color);
 }

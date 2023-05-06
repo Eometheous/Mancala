@@ -7,7 +7,7 @@ import java.awt.*;
  * @author Jonathan Stewart Thomas
  * @version 1.0.0.230426
  */
-public class BoardStylePicker implements BoardStyle{
+public class BoardStylePicker {
     private final BoardStyle style;
 
     /**
@@ -20,29 +20,28 @@ public class BoardStylePicker implements BoardStyle{
     }
 
     /**
-     * Sets the font color for this style
+     * Gets the font color for this style
      * @author Jonathan Stewart Thomas
      * @return  the color for the mancala pit
      */
-    @Override
     public Color getFontColor() {
         return style.getFontColor();
     }
 
     /**
-     * Sets the pit color for this style
+     * Gets the pit color for this style
      * @author Jonathan Stewart Thomas
      * @return the color for regular pits
      */
-    @Override
     public Color getPitColor() {
         return style.getPitColor();
     }
 
     /**
+     * Gets the board color for this style
+     * @author Jonathan Stewart Thomas
      * @return the color for the board
      */
-    @Override
     public Color getBoardColor() {
         return style.getBoardColor();
     }

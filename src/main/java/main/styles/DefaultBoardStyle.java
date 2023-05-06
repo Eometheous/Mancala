@@ -9,10 +9,11 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public class DefaultBoardStyle implements BoardStyle{
-    private final Color boardColor, fontColor, pitColor;
+    private Color boardColor, fontColor, pitColor;
 
     /**
      * Sets the colors for the default style
+     * @author Jonathan Stewart Thomas
      */
     public DefaultBoardStyle() {
         boardColor = new Color(163, 114, 46);
@@ -21,6 +22,8 @@ public class DefaultBoardStyle implements BoardStyle{
     }
 
     /**
+     * Gets the font color for this style
+     * @author Jonathan Stewart Thomas
      * @return  the mancalaPitColor
      */
     @Override
@@ -29,6 +32,8 @@ public class DefaultBoardStyle implements BoardStyle{
     }
 
     /**
+     * Gets the pit color for this style
+     * @author Jonathan Stewart Thomas
      * @return  the pit color
      */
     @Override
@@ -37,10 +42,42 @@ public class DefaultBoardStyle implements BoardStyle{
     }
 
     /**
+     * Gets the board color for this style
+     * @author Jonathan Stewart Thomas
      * @return  the board color
      */
     @Override
     public Color getBoardColor() {
         return boardColor;
     }
+
+    /**
+     * Sets the font color for this style
+     * @author Jonathan Stewart Thomas
+     * @param color the color for the font
+     */
+    @Override
+    public void setFontColor(Color color) {
+        fontColor = color;
+    }
+
+    /**
+     * Sets the pit color for this style
+     * @author Jonathan Stewart Thomas
+     * @param color the color for the pits
+     */
+    @Override
+    public void setPitColor(Color color) {
+        pitColor = color;
+    }
+
+    /**
+     * Sets the board color for this style
+     * @param color the color for the board
+     */
+    @Override
+    public void setBoardColor(Color color) {
+        boardColor = color;
+    }
+
 }
