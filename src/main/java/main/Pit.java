@@ -1,5 +1,9 @@
 package main;
 
+import main.util.BeadPainter;
+import main.util.Undo;
+import main.util.Victory;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

@@ -1,6 +1,8 @@
 package main;
 
 import main.styles.*;
+import main.util.Undo;
+import main.util.Victory;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -53,7 +55,7 @@ public class GameStatus extends JPanel {
 
 
         JMenuItem undoItem = new JMenuItem("Undo");
-        undoItem.addActionListener(e->Undo.undo(beadsModel, mancalaPitsModel));
+        undoItem.addActionListener(e-> Undo.undo(beadsModel, mancalaPitsModel));
         gameOptions.add(undoItem);
 
         JMenuItem defaultMode = new JMenuItem("Default Board");

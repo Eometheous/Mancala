@@ -1,4 +1,6 @@
 package main;
+import main.util.BeadPainter;
+
 import javax.swing.event.*;
 import java.util.ArrayList;
 import javax.swing.*;

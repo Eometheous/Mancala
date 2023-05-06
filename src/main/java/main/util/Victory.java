@@ -1,4 +1,7 @@
-package main;
+package main.util;
+
+import main.GameStatus;
+import main.Model;
 
 import javax.swing.*;
 /**

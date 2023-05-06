@@ -1,4 +1,6 @@
-package main;
+package main.util;
+
+import main.BeadIcon;
 
 import java.awt.*;
 import java.util.ArrayList;

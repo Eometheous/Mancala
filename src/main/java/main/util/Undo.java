@@ -1,4 +1,8 @@
-package main;
+package main.util;
+
+import main.GameStatus;
+import main.Model;
+
 /**
  * The Undo class is a class that contains static methods that are used to allow the user to undo. These methods are used
  * in the GameStatus class and the Pit class to have a save state of the board. This save state can be used to
