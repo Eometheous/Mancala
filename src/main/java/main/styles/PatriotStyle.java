@@ -11,6 +11,10 @@ public class PatriotStyle implements BoardStyle {
     private final Color pit;
     private final Color font;
 
+    /**
+     * Default constructor for the patriot style. Red, white and blue.
+     * @author Jeffrey Van
+     */
     public PatriotStyle() {
         board = new Color(0,33,71);
         pit = new Color(201, 14, 14);
@@ -19,6 +23,7 @@ public class PatriotStyle implements BoardStyle {
 
     /**
      * sets the color of the font
+     * @author Jeffrey Van
      * @return the color of the font
      */
     @Override
@@ -28,6 +33,7 @@ public class PatriotStyle implements BoardStyle {
 
     /**
      * sets the color of the pits
+     * @author Jeffrey Van
      * @return the color of the pits
      */
     @Override
@@ -37,6 +43,7 @@ public class PatriotStyle implements BoardStyle {
 
     /**
      * sets the color of the board
+     * @author Jeffrey Van
      * @return the color of the board
      */
     @Override

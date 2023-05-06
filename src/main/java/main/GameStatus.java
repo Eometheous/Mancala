@@ -21,6 +21,7 @@ public class GameStatus extends JPanel {
 
     /**
      * Creates a menu bar with all the possible menu options, game options & board options.
+     * @author Jeffrey Van
      * @param model   the model used to hold the beads in the mancala pits
      * @param board    the board containing all the pits
      */
@@ -34,6 +35,7 @@ public class GameStatus extends JPanel {
 
     /**
      * Method that creates and returns a JMenuBar that has all the options available that the user can select from.
+     * @author Jeffrey Van
      * @return menu bar that has all the options
      */
     private JMenuBar createMenuBar(){
@@ -85,6 +87,7 @@ public class GameStatus extends JPanel {
     /**
      * Method that makes the buttons and displays it for the user to be able to interact with. It then displays
      * the options in a JOptionPane.
+     * @author Jeffrey Van
      */
     private void setBeadsOptions(){
         JRadioButton twoBeads = new JRadioButton("Two Beads");
@@ -117,6 +120,7 @@ public class GameStatus extends JPanel {
 
     /**
      * Method that returns an action listener, it basically sets the player in the game options.
+     * @author Jeffrey Van
      * @param player a boolean that is true if it is player b, false if player a
      * @return e Actionlistener that sets the player turn.
      */
@@ -126,6 +130,7 @@ public class GameStatus extends JPanel {
 
     /**
      * Method that returns an ActionListener
+     * @author Jeffrey Van
      * @param beads the amount of beads
      * @return actionlistener that updates the amount of beads in each pit
      */
@@ -143,6 +148,7 @@ public class GameStatus extends JPanel {
 
     /**
      * Method that returns an ActionListener
+     * @author Jeffrey Van
      * @param picker the amount of beads
      * @return actionlistener that updates the border style of the Mancala board.
      */

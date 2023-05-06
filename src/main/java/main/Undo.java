@@ -17,6 +17,7 @@ public class Undo{
 
     /**
      * This static void method, it sets the model to the save state that we previously established.
+     * @author Jeffrey Van
      * @param model   the model used to hold the beads in the mancala pits
      * @param mancalaPitModel    the board containing all the pits
      */
@@ -39,6 +40,7 @@ public class Undo{
 
     /**
      * Resets the undo counter.
+     * @author Jeffrey Van
      */
     public static void resetUndoCounter(){
         undoCounter = 3;
@@ -47,6 +49,7 @@ public class Undo{
     /**
      * This static method initializes the save states to what the model or the mancala pit model is at the
      * start of the game.
+     * @author Jeffrey Van
      * @param model the model used to hold the beads in the mancala pits
      * @param mancalaPitModel the board containing all the pits
      */
@@ -62,6 +65,7 @@ public class Undo{
 
     /**
      * This static method updates the save states.
+     * @author Jeffrey Van
      * @param model the model used to hold the beads in the mancala pits
      * @param mancalaPitModel the board containing all the pits
      */

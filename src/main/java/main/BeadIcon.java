@@ -21,6 +21,7 @@ public class BeadIcon implements Icon {
 
     /**
      * Default constructor for an individual bead. The user can call this if they want just a default style
+     * @author Jeffrey Van
      */
     public BeadIcon() {
          radius = 15;
@@ -31,6 +32,7 @@ public class BeadIcon implements Icon {
 
     /**
      * A constructor that has a parameter that takes in a designated radius size, sets the bead to radius size.
+     * @author Jeffrey Van
      * @param newRadius a radius to set the beads to.
      */
     public BeadIcon(int newRadius) {
@@ -42,6 +44,7 @@ public class BeadIcon implements Icon {
 
     /**
      * Paint icon paints the individual bead
+     * @author Jeffrey Van
      * @param c Component
      * @param g Graphics to draw with
      * @param x The x coordinate, where the bead is to be drawn
@@ -62,6 +65,7 @@ public class BeadIcon implements Icon {
 
     /**
      * Getter method to get the width of the bead
+     * @author Jeffrey Van
      * @return which is the icon width
      */
     @Override
@@ -71,6 +75,7 @@ public class BeadIcon implements Icon {
 
     /**
      * Getter method that returns the icon height of bead
+     * @author Jeffrey Van
      * @return radius which is the icon height
      */
     @Override
