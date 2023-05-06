@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class BeadPainter {
     /**
      * Paints BeadIcons with constraints for the x-axis
+     * @author Jonathan Stewart Thomas
      * @param beads         the beads being painted
      * @param c             the component the beads are a part of
      * @param g             the graphics to paint the beads

@@ -22,6 +22,7 @@ public class MancalaBoard extends JPanel {
 
     /**
      * Creates a mancala board with two mancala pits and 12 regular pits
+     * @author Jonathan Stewart Thomas
      * @param mancalaPitModel   the model used to hold the beads in the mancala pits
      * @param pitsModel         the model used to hold the beads within the regular pits
      */
@@ -43,6 +44,7 @@ public class MancalaBoard extends JPanel {
 
     /**
      * Sets the style of the board.
+     * @author Jonathan Stewart Thomas
      * @param style the style to be used
      */
     public void setStyle(BoardStyle style) {

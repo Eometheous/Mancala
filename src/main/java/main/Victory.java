@@ -8,7 +8,6 @@ import javax.swing.*;
  * @version 1.0.0.230505
  *
  */
-
 public class Victory extends JPanel {
      static Model<Integer> beadsModel;
      static  Model<Integer> mancalaPitsModel;

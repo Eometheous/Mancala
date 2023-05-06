@@ -6,9 +6,7 @@ package main;
  * @author Jeffrey Van
  * @version 1.0.0.230504
  */
-
 public class Undo{
-
     private static final Model<Integer> pitSaveState = new Model<>();
     private static final Model<Integer> mancalaPitSaveState = new Model<>();
     private static int undoCounter = 3;

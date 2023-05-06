@@ -9,10 +9,17 @@ import java.util.ArrayList;
  * @author Kelly Dang
  * @version 1.2.0.230426
  */
-
 public class PitsPanel extends JPanel {
     private final ArrayList<Pit> pits;
     private final ArrayList<JLabel> pitLabels;
+
+    /**
+     * Creates a pits panel containing 12 pits
+     * @author Kelly Dang
+     * @param m     the model containing the number of beads in the pits
+     * @param p     the model containing the number of beads in the Mancala pits
+     * @param color the color of the pits
+     */
     public PitsPanel(Model<Integer> m, Model<Integer> p, Color color) {
         pits = new ArrayList<>();
         pitLabels = new ArrayList<>();
@@ -57,6 +64,7 @@ public class PitsPanel extends JPanel {
     public ArrayList<Pit> getPits() {
         return pits;
     }
+
     /**
     * Sets the font color of the labels based off styles
     * @author Andy Wang

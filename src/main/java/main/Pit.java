@@ -68,8 +68,8 @@ public class Pit extends JPanel implements ChangeListener {
 
     /**
      * Picks up the breads in the specified pit and places them in the other pits following the Mancala game rules.
-     * @param pitNum    the pit the beads are being picked up from.
      * @author Kelly Dang
+     * @param pitNum    the pit the beads are being picked up from.
      */
     private void pickUp(int pitNum) {
         Undo.update(beadsModel, mancalaPitModel);
@@ -120,8 +120,8 @@ public class Pit extends JPanel implements ChangeListener {
 
     /**
      * Steals the breads from the opponents pit and places them into the mancala.
-     * @param pitNum    the pit the beads are being picked up from.
      * @author Kelly Dang
+     * @param pitNum    the pit the beads are being picked up from.
      */
     private void stealBeadsFrom(int pitNum) {
         int opp = beadsModel.get(pitNum) + 1;
