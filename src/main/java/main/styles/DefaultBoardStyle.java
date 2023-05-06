@@ -24,7 +24,7 @@ public class DefaultBoardStyle implements BoardStyle{
      * @return  the mancalaPitColor
      */
     @Override
-    public Color setFontColor() {
+    public Color getFontColor() {
         return fontColor;
     }
 
@@ -32,7 +32,7 @@ public class DefaultBoardStyle implements BoardStyle{
      * @return  the pit color
      */
     @Override
-    public Color setPitColor() {
+    public Color getPitColor() {
         return pitColor;
     }
 
@@ -40,7 +40,7 @@ public class DefaultBoardStyle implements BoardStyle{
      * @return  the board color
      */
     @Override
-    public Color setBoardColor() {
+    public Color getBoardColor() {
         return boardColor;
     }
 }

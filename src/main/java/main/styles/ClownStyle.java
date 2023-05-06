@@ -23,7 +23,7 @@ public class ClownStyle implements BoardStyle {
      * @return the color of the font
      */
     @Override
-    public Color setFontColor() {
+    public Color getFontColor() {
         return font;
     }
 
@@ -32,7 +32,7 @@ public class ClownStyle implements BoardStyle {
      * @return the color of the pits
      */
     @Override
-    public Color setPitColor() {
+    public Color getPitColor() {
         return pit;
     }
 
@@ -41,7 +41,7 @@ public class ClownStyle implements BoardStyle {
      * @return the color of the board
      */
     @Override
-    public Color setBoardColor() {
+    public Color getBoardColor() {
         return board;
     }
 }

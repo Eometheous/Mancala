@@ -30,15 +30,15 @@ public class MancalaBoard extends JPanel {
         stylePicker = new BoardStylePicker(new DefaultBoardStyle());
         setLayout(new BorderLayout(25,25));
 
-        mancalaPitA = new MancalaPit(mancalaPitModel, 0, stylePicker.setPitColor());
-        mancalaPitB = new MancalaPit(mancalaPitModel, 1, stylePicker.setPitColor());
-        pitsPanel = new PitsPanel(pitsModel, mancalaPitModel, stylePicker.setPitColor());
-        pitsPanel.setBackground(stylePicker.setBoardColor());
+        mancalaPitA = new MancalaPit(mancalaPitModel, 0, stylePicker.getPitColor());
+        mancalaPitB = new MancalaPit(mancalaPitModel, 1, stylePicker.getPitColor());
+        pitsPanel = new PitsPanel(pitsModel, mancalaPitModel, stylePicker.getPitColor());
+        pitsPanel.setBackground(stylePicker.getBoardColor());
 
         add(mancalaPitA, BorderLayout.WEST);
         add(mancalaPitB, BorderLayout.EAST);
         add(pitsPanel, BorderLayout.CENTER);
-        setBackground(stylePicker.setBoardColor());
+        setBackground(stylePicker.getBoardColor());
     }
 
     /**
@@ -47,15 +47,15 @@ public class MancalaBoard extends JPanel {
      */
     public void setStyle(BoardStyle style) {
         stylePicker = new BoardStylePicker(style);
-        setBackground(stylePicker.setBoardColor());
-        pitsPanel.setBackground(stylePicker.setBoardColor());
-        pitsPanel.setFontColor(stylePicker.setFontColor());
-        mancalaPitA.setColor(stylePicker.setPitColor());
-        mancalaPitB.setColor(stylePicker.setPitColor());
-        mancalaPitA.setFontColor(stylePicker.setFontColor());
-        mancalaPitB.setFontColor(stylePicker.setFontColor());
+        setBackground(stylePicker.getBoardColor());
+        pitsPanel.setBackground(stylePicker.getBoardColor());
+        pitsPanel.setFontColor(stylePicker.getFontColor());
+        mancalaPitA.setColor(stylePicker.getPitColor());
+        mancalaPitB.setColor(stylePicker.getPitColor());
+        mancalaPitA.setFontColor(stylePicker.getFontColor());
+        mancalaPitB.setFontColor(stylePicker.getFontColor());
         for (Pit pit : pitsPanel.getPits()) {
-            pit.setColor(stylePicker.setPitColor());
+            pit.setColor(stylePicker.getPitColor());
         }
     }
 }

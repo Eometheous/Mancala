@@ -12,6 +12,7 @@ public class BoardStylePicker implements BoardStyle{
 
     /**
      * Initializes this with a specific style
+     * @author Jonathan Stewart Thomas
      * @param style the style to use
      */
     public BoardStylePicker(BoardStyle style) {
@@ -19,26 +20,30 @@ public class BoardStylePicker implements BoardStyle{
     }
 
     /**
+     * Sets the font color for this style
+     * @author Jonathan Stewart Thomas
      * @return  the color for the mancala pit
      */
     @Override
-    public Color setFontColor() {
-        return style.setFontColor();
+    public Color getFontColor() {
+        return style.getFontColor();
     }
 
     /**
+     * Sets the pit color for this style
+     * @author Jonathan Stewart Thomas
      * @return the color for regular pits
      */
     @Override
-    public Color setPitColor() {
-        return style.setPitColor();
+    public Color getPitColor() {
+        return style.getPitColor();
     }
 
     /**
      * @return the color for the board
      */
     @Override
-    public Color setBoardColor() {
-        return style.setBoardColor();
+    public Color getBoardColor() {
+        return style.getBoardColor();
     }
 }
