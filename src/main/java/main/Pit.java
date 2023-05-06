@@ -115,9 +115,6 @@ public class Pit extends JPanel implements ChangeListener {
             else if(!isPlayerBTurn() && pitNum >= 6) {
                 stealBeadsFrom(oppositePitOf(pitNum));
             }
-            else {
-                return;
-            }
         }
     }
 
