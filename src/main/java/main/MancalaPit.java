@@ -1,4 +1,6 @@
 package main;
+import main.util.BeadPainter;
+
 import javax.swing.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -67,7 +69,8 @@ public class MancalaPit extends JPanel implements ChangeListener {
 
 	/**
 	 * Paints the mancala with the beads inside
-	 *@param g a Graphics object	
+	 * @author Andy Wang
+	 * @param g a Graphics object
 	 */
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
@@ -78,14 +81,17 @@ public class MancalaPit extends JPanel implements ChangeListener {
 	}
 
 	/**
-	 * Gets the mancala number 
+	 * Gets the mancala number
+	 * @author Andy Wang
 	 * @return int value of the mancala number
 	 */
 	public int getMancalaNumber() {
 		return this.mancalaNumber;
 	}
+
 	/**
 	 * Updates the number of beads in the mancala pit
+	 * @author Andy Wang
 	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {

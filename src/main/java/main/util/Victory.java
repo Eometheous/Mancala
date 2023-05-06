@@ -1,4 +1,7 @@
-package main;
+package main.util;
+
+import main.GameStatus;
+import main.Model;
 
 import javax.swing.*;
 /**
@@ -8,7 +11,6 @@ import javax.swing.*;
  * @version 1.0.0.230505
  *
  */
-
 public class Victory extends JPanel {
      static Model<Integer> beadsModel;
      static  Model<Integer> mancalaPitsModel;
@@ -17,6 +19,7 @@ public class Victory extends JPanel {
      * The checkVictory method takes in a panel for the JOptionPane popup. It will check if the game is started,
      * and if the game is started then it will check if there is a winner based on how many empty pits exist. If a winner
      * exists, then we shall display it and clear the board.
+     * @author Jeffrey Van
      * @param panel takes in a panel for the JOptionPane popup
      */
     public static void checkVictory(JPanel panel) {
@@ -60,6 +63,7 @@ public class Victory extends JPanel {
 
     /**
      * Initializes the static variables to the passed in models to be used.
+     * @author Jeffrey Van
      * @param model Bead Model
      * @param pitsModel Pits Model of the players
      */
@@ -70,6 +74,7 @@ public class Victory extends JPanel {
 
     /**
      * Take all the beads depending on if one side is empty or not.
+     * @author Jeffrey Van
      * @param isPlayerBEmpty if player B's side is empty or player A side is empty.
      */
     private static void takeAll(boolean isPlayerBEmpty){
@@ -89,6 +94,7 @@ public class Victory extends JPanel {
 
     /**
      * Clear the board for next game.
+     * @author Jeffrey Van
      */
     private static void clearBoard(){
         for (int i = 0; i < 12; i++) {

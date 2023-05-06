@@ -7,39 +7,15 @@ import java.awt.*;
  * @author Andy Wang
  * @version 1.0.0.230428
  */
-public class ValorantStyle implements BoardStyle{
-    private final Color boardColor, fontColor, pitColor;
+public class ValorantStyle extends DefaultBoardStyle{
 
     /**
-     * Sets the colors for the dark style
+     * Sets the colors for the Valorant style
+     * @author Andy Wang
      */
     public ValorantStyle() {
-        boardColor = new Color(255, 81, 82);
-        fontColor = new Color(12, 24, 36);
-        pitColor = new Color(12, 24, 36);
-    }
-
-    /**
-     * @return  the mancalaPitColor
-     */
-    @Override
-    public Color setFontColor() {
-        return fontColor;
-    }
-
-    /**
-     * @return  the pit color
-     */
-    @Override
-    public Color setPitColor() {
-        return pitColor;
-    }
-
-    /**
-     * @return  the board color
-     */
-    @Override
-    public Color setBoardColor() {
-        return boardColor;
+        setBoardColor(new Color(255, 81, 82));
+        setPitColor(new Color(12, 24, 36));
+        setFontColor(new Color(12, 24, 36));
     }
 }

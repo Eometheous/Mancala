@@ -8,7 +8,10 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public interface BoardStyle {
-    Color setFontColor();
-    Color setPitColor();
-    Color setBoardColor();
+    Color getFontColor();
+    Color getPitColor();
+    Color getBoardColor();
+    void setFontColor(Color color);
+    void setPitColor(Color color);
+    void setBoardColor(Color color);
 }
