@@ -15,11 +15,10 @@ import java.awt.*;
  * @version 1.0.0.230426
  */
 public class MancalaBoard extends JPanel {
-    BoardStylePicker stylePicker;
-    MancalaPit mancalaPitA, mancalaPitB;
-    PitsPanel pitsPanel;
-    Model<Integer> mancalaPitModel;
-    Model<Integer> pitsModel;
+    private BoardStylePicker stylePicker;
+    private final MancalaPit mancalaPitA;
+    private final MancalaPit mancalaPitB;
+    private final PitsPanel pitsPanel;
 
     /**
      * Creates a mancala board with two mancala pits and 12 regular pits
@@ -27,8 +26,6 @@ public class MancalaBoard extends JPanel {
      * @param pitsModel         the model used to hold the beads within the regular pits
      */
     public MancalaBoard(Model<Integer> mancalaPitModel, Model<Integer> pitsModel) {
-        this.mancalaPitModel = mancalaPitModel;
-        this.pitsModel = pitsModel;
 
         stylePicker = new BoardStylePicker(new DefaultBoardStyle());
         setLayout(new BorderLayout(25,25));
