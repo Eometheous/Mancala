@@ -14,13 +14,10 @@ import java.awt.geom.*;
 
 
 public class BeadIcon implements Icon {
-
-
-   private final int radius;
+    private final int radius;
     private final Color beadColor;
     private final int colorCode;
-   private final double colorValue;
-
+    private final double colorValue;
 
     /**
      * Default constructor for an individual bead. The user can call this if they want just a default style
@@ -55,7 +52,6 @@ public class BeadIcon implements Icon {
 
         Graphics2D g2 = (Graphics2D) g;
         Ellipse2D circle = new Ellipse2D.Double(x, y, radius, radius);
-
 
         g2.setColor(beadColor);
         g2.fill(circle);
