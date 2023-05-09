@@ -95,14 +95,20 @@ public class Pit extends JPanel implements ChangeListener {
             if (pitNum == 6 && GameStatus.isPlayerBTurn()) {// we just crossed from B to A
                 mancalaPitModel.update(0, mancalaPitModel.get(0) + 1);
                 numberOfBeads--;
-                if (numberOfBeads == 0) GameStatus.updatePlayersTurn(); // if the last bead was placed in the mancala, go again
+                if (numberOfBeads == 0){
+                    GameStatus.updatePlayersTurn();
+                    Undo.anotherTurn = true;// if the last bead was placed in the mancala, go again
+                }
             }
             else if (pitNum == 12) { // we just crossed from A to B
                 pitNum = 0;
                 if (!GameStatus.isPlayerBTurn()) {
                     mancalaPitModel.update(1, mancalaPitModel.get(1) + 1);
                     numberOfBeads--;
-                    if (numberOfBeads == 0) GameStatus.updatePlayersTurn(); // if the last bead was placed in the mancala, go again
+                    if (numberOfBeads == 0) {
+                        GameStatus.updatePlayersTurn();
+                        Undo.anotherTurn = true;// if the last bead was placed in the mancala, go again
+                    }
                 }
             }
             if (numberOfBeads > 0) {

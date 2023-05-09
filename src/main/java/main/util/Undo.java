@@ -16,6 +16,7 @@ public class Undo{
     private static int undoCounter = 3;
     private static boolean isDisabled = false;
     private static boolean undone = false;
+    public static boolean anotherTurn = false;
 
     /**
      * This static void method, it sets the model to the save state that we previously established.
@@ -27,7 +28,10 @@ public class Undo{
         if(undoCounter > 0 && !isDisabled) {
             undone = true;
 
-            GameStatus.updatePlayersTurn();
+            if(!anotherTurn) {
+                GameStatus.updatePlayersTurn();
+            }
+
             for (int i = 0; i < 12; i++) {
                 model.update(i, pitSaveState.get(i));
             }
@@ -37,6 +41,7 @@ public class Undo{
             }
             undoCounter--;
             isDisabled = true;
+            anotherTurn = false;
         }
     }
 
